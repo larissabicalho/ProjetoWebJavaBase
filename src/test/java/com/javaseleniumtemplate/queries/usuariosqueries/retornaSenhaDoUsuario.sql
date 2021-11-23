@@ -1,3 +1,3 @@
-select senha
+select password
   from usuarios
- where usuario = '$usuario'
+ where username = '$usuario'

@@ -12,7 +12,7 @@ public class LoginFlows {
 
     //Flows
     public void efetuarLogin(String username, String password){
-        loginPage.preenhcerUsuario(username);
+        loginPage.preencherUsuario(username);
         loginPage.preencherSenha(password);
         loginPage.clicarEmLogin();
     }

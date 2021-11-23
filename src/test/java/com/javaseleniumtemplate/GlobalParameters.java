@@ -46,7 +46,7 @@ public class GlobalParameters {
         DOWNLOAD_DEFAULT_PATH = properties.getProperty("download.defaul.path");
         REPORT_PATH = properties.getProperty("report.path");
         DB_URL = properties.getProperty("db.url");
-        DB_SID = properties.getProperty("db.sid");
+        //DB_SID = properties.getProperty("db.sid");
         DB_USER = properties.getProperty("db.user");
         DB_PASSWORD = properties.getProperty("db.password");
     }

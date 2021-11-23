@@ -1,7 +1,7 @@
 package com.javaseleniumtemplate.tests;
 
 import com.javaseleniumtemplate.bases.TestBase;
-import com.javaseleniumtemplate.dbsteps.UsuariosDBSteps;
+import com.javaseleniumtemplate.dbsteps.Usuarios.UsuariosDBSteps;
 import com.javaseleniumtemplate.pages.LoginPage;
 import com.javaseleniumtemplate.pages.MainPage;
 import org.testng.Assert;
@@ -15,37 +15,26 @@ public class LoginTests extends TestBase {
     //Tests
     @Test
     public void efetuarLoginComSucesso(){
+
+        UsuariosDBSteps.insereUsuario();
         //Objects instances
         loginPage = new LoginPage();
         mainPage = new MainPage();
 
         //Parameteres
-        String usuario = "templateautomacao";
-        String senha = "123456";
-
-        //Test
-        loginPage.preenhcerUsuario(usuario);
-        loginPage.preencherSenha(senha);
-        loginPage.clicarEmLogin();
-
-        Assert.assertEquals(usuario, mainPage.retornaUsernameDasInformacoesDeLogin());
-    }
-
-    //@Test
-    public void efetuarLoginComSucesso_SenhaRetornadaDoDB(){
-        //Objects instances
-        loginPage = new LoginPage();
-        mainPage = new MainPage();
-
-        //Parameteres
-        String usuario = "templateautomacao";
+        String usuario =  UsuariosDBSteps.retornaUsername();
         String senha = UsuariosDBSteps.retornaSenhaDoUsuarioDB(usuario);
 
         //Test
-        loginPage.preenhcerUsuario(usuario);
+        loginPage.preencherUsuario(usuario);
+        loginPage.clicarEmLogin();
         loginPage.preencherSenha(senha);
         loginPage.clicarEmLogin();
 
         Assert.assertEquals(usuario, mainPage.retornaUsernameDasInformacoesDeLogin());
+
+        UsuariosDBSteps.deletarUsuarioDB(usuario);
+
     }
+
 }

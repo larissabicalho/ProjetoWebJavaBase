@@ -11,7 +11,7 @@ public class LoginPage extends PageBase {
     By mensagemErroTextArea = By.xpath("/html/body/div[2]/font");
 
     //Actions
-    public void preenhcerUsuario(String usuario){
+    public void preencherUsuario(String usuario){
         sendKeys(usernameField, usuario);
     }
 
