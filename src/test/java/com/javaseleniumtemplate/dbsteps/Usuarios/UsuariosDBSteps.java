@@ -23,7 +23,7 @@ public class UsuariosDBSteps {
     }
 
     public static String retornaUsername(){
-        String query = Utils.getFileContent(queriesPath + "retornaUsuarioNoBanco.sql");
+        String query = Utils.getFileContent(queriesPath + "retornarUsername.sql");
 
         return DBUtils.getQueryResult(query).get(0);
     }

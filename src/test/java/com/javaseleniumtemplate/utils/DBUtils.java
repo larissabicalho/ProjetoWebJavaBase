@@ -1,73 +1,80 @@
 package com.javaseleniumtemplate.utils;
 
+import com.javaseleniumtemplate.GlobalParameters;
+
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DBUtils {
 
-    public static ArrayList<String> getQueryResult(String query){
-        ArrayList<String> arrayList = null;
-        Connection connection = null;
+        public static String getStringConnection(){
+            return "jdbc:mariadb://"+
+                    GlobalParameters.DB_URL +"/"+GlobalParameters.DB_NAME;//exemplo MySQL
+        }
 
-        try {
-            Class.forName("UTILIZAR O DRIVER DO BANCO DE DADOS DA APLICAÇÃO");
-            Statement stmt = null;
-            connection = DriverManager.getConnection("utilizar os parãmetros globais para montar a string de conexão de acordo com db utilizado");
+        public static ArrayList<String> getQueryResult(String query){
+            ArrayList<String> arrayList = null;
+            Connection connection = null;
 
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            try {
+                Class.forName("org.mariadb.jdbc.Driver"); //exemplo para MySQL
+                Statement stmt = null;
+                connection = DriverManager.getConnection(getStringConnection(), GlobalParameters.DB_USER, GlobalParameters.DB_PASSWORD);
 
-            if(!rs.isBeforeFirst()){
-                return null;
-            }
+                stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
 
-            else{
-                int numberOfColumns;
-                ResultSetMetaData metadata=null;
+                if(!rs.isBeforeFirst()){
+                    return null;
+                }
 
-                arrayList = new ArrayList<String>();
-                metadata = rs.getMetaData();
-                numberOfColumns = metadata.getColumnCount();
+                else{
+                    int numberOfColumns;
+                    ResultSetMetaData metadata=null;
 
-                while (rs.next()) {
-                    int i = 1;
-                    while(i <= numberOfColumns) {
-                        arrayList.add(rs.getString(i++));
+                    arrayList = new ArrayList<String>();
+                    metadata = rs.getMetaData();
+                    numberOfColumns = metadata.getColumnCount();
+
+                    while (rs.next()) {
+                        int i = 1;
+                        while(i <= numberOfColumns) {
+                            arrayList.add(rs.getString(i++));
+                        }
                     }
                 }
-            }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally{
-            try {
-                connection.close();
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
+            } finally{
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            return arrayList;
+        }
+
+        public static void executeQuery(String query){
+            Connection connection = null;
+
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Statement stmt = null;
+                connection = DriverManager.getConnection(getStringConnection(), GlobalParameters.DB_USER, GlobalParameters.AUTHENTICATOR_PASSWORD);
+
+                stmt = connection.createStatement();
+                stmt.executeQuery(query);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally{
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
-        return arrayList;
-    }
-
-    public static void executeQuery(String query){
-        Connection connection = null;
-
-        try {
-            Class.forName("UTILIZAR O DRIVER DO BANCO DE DADOS DA APLICAÇÃO");
-            Statement stmt = null;
-            connection = DriverManager.getConnection("utilizar os parãmetros globais para montar a string de conexão de acordo com db utilizado");
-
-            stmt = connection.createStatement();
-            stmt.executeQuery(query);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally{
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
