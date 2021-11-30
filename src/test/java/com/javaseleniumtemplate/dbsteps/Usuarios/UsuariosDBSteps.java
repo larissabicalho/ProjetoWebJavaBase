@@ -28,10 +28,15 @@ public class UsuariosDBSteps {
         return DBUtils.getQueryResult(query).get(0);
     }
 
-    public static String deletarUsuarioDB(String usuario){
-        String query = Utils.getFileContent(queriesPath + "deletarUsuarioNoBanco.sql").replace("$usuario", usuario);
+    public static String retornaEmail(){
+        String query = Utils.getFileContent(queriesPath + "retornarEmail.sql");
 
         return DBUtils.getQueryResult(query).get(0);
+    }
+
+    public static void deletarUsuarioDB(String usuario){
+        String query = Utils.getFileContent(queriesPath + "deletarUsuarioNoBanco.sql").replace("$usuario", usuario);
+        DBUtils.getQueryResult(query);
     }
 
 

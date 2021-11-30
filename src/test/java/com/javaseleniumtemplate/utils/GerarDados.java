@@ -17,7 +17,7 @@ public class GerarDados {
 
         public static String fullName(){
             Faker faker = new Faker(LOCALE);
-            return faker.name().firstName() +" "+ faker.name().lastName();
+            return faker.name().firstName() +" "+ faker.name().lastName().replace("'","");
         }
         public static String email(){
             Faker faker = new Faker(LOCALE);
