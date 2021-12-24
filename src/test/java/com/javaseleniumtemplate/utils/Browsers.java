@@ -21,8 +21,10 @@ public class Browsers {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("no-sandbox");
         chromeOptions.addArguments("--allow-running-insecure-content");
-        chromeOptions.addArguments("--lang=pt-BR");
+        chromeOptions.addArguments("--lang=eng-US");
+        chromeOptions.addArguments("--safebrowsing-disable-download-protection");
         chromeOptions.addArguments("download.default_directory", downloadPath);
+        chromeOptions.addArguments("safebrowsing.enabled", "true");
         return new ChromeDriver(chromeOptions);
     }
 
@@ -56,7 +58,7 @@ public class Browsers {
 
     public static WebDriver getRemoteChromeHeadless(){
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("download.default_directory", downloadPath);
+    chromeOptions.addArguments("download.default_directory", downloadPath);
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--lang=pt-BR");
         chromeOptions.addArguments("--disable-gpu");

@@ -25,6 +25,8 @@ public class GlobalParameters {
     public static String TOKEN;
     public static String AUTHENTICATOR_USER;
     public static String AUTHENTICATOR_PASSWORD;
+    public static String WEB_DAV;
+    public static String UPLOAD;
 
     private Properties properties;
 
@@ -51,6 +53,8 @@ public class GlobalParameters {
         GET_SCREENSHOT_FOR_EACH_STEP = Boolean.parseBoolean(properties.getProperty("get.screenshot.for.each.step"));
         DOWNLOAD_DEFAULT_PATH = properties.getProperty("download.defaul.path");
         REPORT_PATH = properties.getProperty("report.path");
+        WEB_DAV = properties.getProperty("webdav.resource");
+        UPLOAD = properties.getProperty("upload.resource");
 
         if(ENVIROMENT.equals("hml")){
             DB_URL = properties.getProperty("hml.db.url");

@@ -1,0 +1,1 @@
+DELETE FROM bugtracker.mantis_bugnote_text_table ORDER BY id DESC LIMIT 1

@@ -39,5 +39,10 @@ public class UsuariosDBSteps {
         DBUtils.getQueryResult(query);
     }
 
+    public static void deletarEmailDB(String email){
+        String query = Utils.getFileContent(queriesPath + "deletarEmail.sql").replace("$email", email);
+        DBUtils.getQueryResult(query);
+    }
+
 
 }

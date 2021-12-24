@@ -1,8 +1,10 @@
 package com.javaseleniumtemplate.bases;
 
 import com.javaseleniumtemplate.GlobalParameters;
+import com.javaseleniumtemplate.defaultParameters.GlobalStaticParameters;
 import com.javaseleniumtemplate.utils.DriverFactory;
 import com.javaseleniumtemplate.utils.ExtentReportUtils;
+import com.javaseleniumtemplate.utils.WebdavUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,11 +12,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.commons.lang3.time.StopWatch;
 
+import java.io.File;
+import java.io.IOException;
+
 public class PageBase {
     //Variaveis globlais
     protected WebDriverWait wait = null;
     protected WebDriver driver = null;
     protected JavascriptExecutor javaScriptExecutor = null;
+    protected static final String style = "style";
 
     //Construtor
     public PageBase(){
@@ -45,6 +51,7 @@ public class PageBase {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         return element;
     }
+
 
     protected WebElement waitForElementByTime(By locator, int time){
         waitUntilPageReady();
@@ -139,6 +146,12 @@ public class PageBase {
         Select comboBox = new Select(waitForElement(locator));
         comboBox.selectByVisibleText(text);
         ExtentReportUtils.addTestInfo(3, "PARAMETER: " + text);
+    }
+
+    protected void comboBoxSelectByOption(By locator, String index){
+        Select comboBox = new Select(waitForElement(locator));
+        comboBox.selectByValue(index);
+        ExtentReportUtils.addTestInfo(3, "PARAMETER: " + index);
     }
 
     protected void mouseOver(By locator){
@@ -250,5 +263,127 @@ public class PageBase {
         String url = driver.getCurrentUrl();
         ExtentReportUtils.addTestInfo(2, "");
         return url;
+    }
+
+    public boolean verificarSeContemArquivoNaPastaExcel() throws IOException {
+
+        if(GlobalParameters.EXECUTION.contains("remota")) {
+
+            String webdavResource = GlobalParameters.WEB_DAV;
+
+            int time = 0;
+            while (time <= 60) {
+                if (WebdavUtils.getResourcesFrom(webdavResource).isEmpty()) {
+                    new Actions(driver).pause(1000).perform();
+                    time++;
+                } else {
+                    WebdavUtils.deleteResourceExcel(webdavResource);
+                    return true;
+
+                }
+            }
+        }else if (GlobalParameters.EXECUTION.contains("local")) {
+            File downloads = new File(GlobalStaticParameters.xml);
+
+            int time = 0;
+            while (time <= 60) {
+
+                if (downloads.length() != 0) {
+                    downloads.delete();
+                    return true;
+                }
+                else {
+                    new Actions(driver).pause(1000).perform();
+                    time++;
+                }
+            }
+        }
+        return false;
+
+    }
+    public boolean verificarSeContemArquivoNaPastaDoc() throws IOException {
+
+        if(GlobalParameters.EXECUTION.contains("remota")) {
+
+            String webdavResource = GlobalParameters.WEB_DAV;
+
+            int time = 0;
+            while (time <= 60) {
+                if (WebdavUtils.getResourcesFrom(webdavResource).isEmpty()) {
+                    new Actions(driver).pause(1000).perform();
+                    time++;
+                } else {
+                    WebdavUtils.deleteResourceDOC(webdavResource);
+                    return true;
+
+                }
+            }
+        }else if (GlobalParameters.EXECUTION.contains("local")) {
+            File downloads = new File(GlobalStaticParameters.doc);
+
+       //     File[] files = downloads.listFiles();
+            int time = 0;
+            while (time <= 60) {
+
+                if (downloads.length() != 0) {
+                    downloads.delete();
+                    return true;
+                }
+                else {
+                    new Actions(driver).pause(1000).perform();
+                    time++;
+                }
+            }
+        }
+        return false;
+
+    }
+
+    public boolean verificarSeContemArquivoNaPastaCSV() throws IOException {
+
+        if(GlobalParameters.EXECUTION.contains("remota")) {
+
+            String webdavResource = GlobalParameters.WEB_DAV;
+
+            int time = 0;
+            while (time <= 60) {
+                if (WebdavUtils.getResourcesFrom(webdavResource).isEmpty()) {
+                    new Actions(driver).pause(1000).perform();
+                    time++;
+                } else {
+                    WebdavUtils.deleteResourceCSV(webdavResource);
+                    return true;
+
+                }
+            }
+        }else if (GlobalParameters.EXECUTION.contains("local")) {
+            File downloads = new File(GlobalStaticParameters.csv);
+            int time = 0;
+            while (time <= 60) {
+
+                if (downloads.length() != 0) {
+                    downloads.delete();
+                    return true;
+                }
+                else {
+                    new Actions(driver).pause(1000).perform();
+                    time++;
+                }
+            }
+        }
+        return false;
+
+
+    }
+
+    public static void defineAtributoElemento(WebDriver driver, WebElement elemento, String atributo, String valor) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
+        jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", new Object[]{elemento, atributo, valor});
+    }
+
+    public void dropBox(By upload) {
+        WebElement inputUpload = driver.findElement(upload);
+        String valorStyle = inputUpload.getAttribute(style);
+        defineAtributoElemento(driver, inputUpload, style, "");
     }
 }

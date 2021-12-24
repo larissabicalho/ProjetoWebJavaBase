@@ -41,8 +41,6 @@ public class ResetTests extends TestBase {
         mainPage.clicarEmEsqueceuSenha();
         resetPage.preencherEmailReset(email);
         resetPage.clicarResetButton();
-       // loginPage.preencherSenha(usersDados.getPassword());
-       // loginPage.clicarEmLogin();
 
         Assert.assertFalse(mainPage.verificarSeExisteOCampoEmail());
 

@@ -7,6 +7,7 @@ import com.javaseleniumtemplate.enums.Users;
 import com.javaseleniumtemplate.pages.LoginPage;
 import com.javaseleniumtemplate.pages.MainPage;
 import com.javaseleniumtemplate.utils.Arquivos;
+import com.javaseleniumtemplate.utils.ExecutarJavaScriptNode;
 import com.javaseleniumtemplate.utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -83,7 +84,8 @@ public class LoginTests extends TestBase {
         loginPage.preencherSenha(GlobalStaticParameters.senha);
         loginPage.clicarEmLogin();
 
-        Assert.assertEquals(GlobalStaticParameters.mensagemErroEmail, mainPage.retornaUsernameDasInformacoesDeLogin());
+        Assert.assertEquals(GlobalStaticParameters.mensagemErroEmail, mainPage.retornaMensagemErro());
+
 
         UsuariosDBSteps.deletarUsuarioDB(usuario);
 
@@ -169,6 +171,25 @@ public class LoginTests extends TestBase {
 
 
         Assert.assertEquals(GlobalStaticParameters.mensagemErroEmail, mainPage.retornaMensagemErro());
+
+    }
+
+
+    @Test
+    public void efetuarLoginComNodeJS() {
+
+        //Objects instances
+        loginPage = new LoginPage();
+        mainPage = new MainPage();
+
+        //Parameteres
+        String usuario =  "";
+
+        //Test
+        loginPage.preencherUsuario(usuario);
+        loginPage.clicarEmLogin();
+
+        Assert.assertTrue(ExecutarJavaScriptNode.executaJavaScript(GlobalStaticParameters.mensagemErroEmail,mainPage.retornaMensagemErro()));
 
     }
 
