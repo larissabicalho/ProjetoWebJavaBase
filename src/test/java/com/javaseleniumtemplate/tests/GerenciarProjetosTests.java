@@ -126,6 +126,8 @@ public class GerenciarProjetosTests extends TestBase {
         gerenciarProjetosPage.clicarEmAtualizarCategoria();
 
         Assert.assertEquals(categoriaAlterada, gerenciarProjetosPage.verificarSeACategoriaExiste(categoriaAlterada));
+
+        CategoriaDBSteps.deletarCategoriaDB(categoriaAlterada);
     }
 
 

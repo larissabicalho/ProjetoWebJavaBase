@@ -2,6 +2,8 @@ package com.javaseleniumtemplate.pages.Issues;
 
 import com.javaseleniumtemplate.bases.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.io.IOException;
 
 public class VerTarefasPage extends PageBase {
@@ -53,7 +55,7 @@ public class VerTarefasPage extends PageBase {
     By clicarEmExportarExcel = By.xpath("//a[text()='Excel Export']");
     By clicarEmPrint = By.xpath("//a[text()='Print Reports']");
     By clicarEmWord = By.xpath("//i[@title='Word 2000']");
-
+    By paraApagar = By.xpath("//span[@class='label label-sm label-default arrowed-in-right']");
 
 
     public boolean verificarSeElementoExiste(){
@@ -111,9 +113,16 @@ public class VerTarefasPage extends PageBase {
 
     public void clicarEmAdicionarAnotacao(){click(botaoAdicionarAnotacao);}
 
-    public void clicarEmAnotacao(){click(verificarAnotacoes);}
+    public void clicarEmAnotacao(){
+        waitForElement(verificarAnotacoes);
+        click(verificarAnotacoes);}
 
-    public void clicarEmApagarAnotacoes(){click(clicarApagar);}
+    public void clicarEmApagarAnotacoes(){
+     //  ScrollToElementJavaScript(paraApagar);
+       // ClickJavaScript(paraApagar);
+        mouseOver(paraApagar);
+        click(clicarApagar);
+    }
 
     public void clicarEmApagarAnotacoesConfirmar(){click(clicarApagarConfirmacao);}
 
@@ -125,7 +134,9 @@ public class VerTarefasPage extends PageBase {
         return returnIfElementExists(verificarAnotacoes);
     }
 
-    public void clicarEmEditarAnotacoes(){ click(clicarEditar);}
+    public void clicarEmEditarAnotacoes(){
+        mouseOver(paraApagar);
+        click(clicarEditar);}
 
     public void limparEPreencherAnotacoes(String anotacoesNote){
         clear(adicionarTextoAnotacoes);
@@ -201,6 +212,9 @@ public class VerTarefasPage extends PageBase {
 
     public void clicarEmPrint(){click(clicarEmPrint);}
 
+    public void esperarElemento(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(selecionarAlterarUsuario));
+    }
 
 
 

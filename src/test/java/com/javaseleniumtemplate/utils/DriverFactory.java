@@ -18,9 +18,9 @@ public class DriverFactory {
                 }else if(browser.equals("chromeHeadless")){
                     INSTANCE = Browsers.getLocalChromeHeadless();
                 }else if(browser.equals("firefox")){
-                    INSTANCE = Browsers.getLocalFirefox();
-                }else if (browser.equals("ie")){
-                    INSTANCE = Browsers.getLocalInternetExplorer();
+                   INSTANCE = Browsers.getLocalFirefox();
+                }else if (browser.equals("opera")){
+                    INSTANCE = Browsers.getLocalOpera();
                 }else{
                     try{
                         throw new Exception("O browser informado não existe ou não é suportado pela automação");
@@ -37,8 +37,10 @@ public class DriverFactory {
                     INSTANCE = Browsers.getRemoteChromeHeadless();
                 }else if(browser.equals("firefox")){
                     INSTANCE = Browsers.getRemoteFirefox();
-                }else if (browser.equals("ie")){
-                    INSTANCE = Browsers.getRemoteInternetExplorer();
+              //  }else if (browser.equals("ie")){
+                //    INSTANCE = Browsers.getRemoteInternetExplorer();
+                }else if (browser.equals("opera")){
+                    INSTANCE = Browsers.getRemoteOpera();
                 }else{
                     try{
                         throw new Exception("O browser informado não existe ou não é suportado pela automação");

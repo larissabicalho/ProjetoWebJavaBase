@@ -59,6 +59,7 @@ public class CriarTarefasTests extends TestBase {
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
         BuscarIssueDBSteps.deletarTexto();
+        BuscarIssueDBSteps.deletarBugHistory(idIssue);
 
     }
 
@@ -87,12 +88,14 @@ public class CriarTarefasTests extends TestBase {
         criarTarefasPage.clicarNoDrop();
 
         if(GlobalParameters.EXECUTION.equals("local")) {
-            criarTarefasPage.preencherArquivo(CAMINHO_DOCUMENTOS_ORIGEM.getAbsolutePath()+"/"+GlobalStaticParameters.file);
+            criarTarefasPage.preencherArquivo(CAMINHO_DOCUMENTOS_ORIGEM.getAbsolutePath()+"\\"+GlobalStaticParameters.file);
         } else {
             criarTarefasPage.preencherArquivo(GlobalParameters.UPLOAD + GlobalStaticParameters.file);
         }
 
-            criarTarefasPage.clicarEmNovaTarefa();
+        criarTarefasPage.clicarEmNovaTarefa();
+
+        verTarefasPage.esperarElemento();
 
         String idIssue = BuscarIssueDBSteps.retornaDadosIssue().get(0);
         String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue);
@@ -105,6 +108,7 @@ public class CriarTarefasTests extends TestBase {
         BuscarIssueDBSteps.deletarIssueId(idIssue);
         BuscarIssueDBSteps.deletarAttachment();
         BuscarIssueDBSteps.deletarTexto();
+        BuscarIssueDBSteps.deletarBugHistory(idIssue);
 
     }
 
