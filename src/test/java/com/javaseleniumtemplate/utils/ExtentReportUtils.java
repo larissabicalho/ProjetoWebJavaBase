@@ -10,7 +10,7 @@ public class ExtentReportUtils {
     public static ExtentReports EXTENT_REPORT = null;
     public static ExtentTest TEST;
     public static ExtentHtmlReporter  HTML_REPORTER = null;
-    static String reportName = GlobalParameters.REPORT_NAME + "_" + Utils.getNowDate("yyyy-MM-dd_HH-mm-ss");
+    static String reportName = GlobalParameters.REPORT_NAME;//+ "_"+ Utils.getNowDate("yyyy-MM-dd_HH-mm-ss");
     static String reportsPath = GlobalParameters.REPORT_PATH;
     static String fileName = reportName+".html";
     static String fullReportFilePath = reportsPath + "/"+ reportName +"/" + fileName;
@@ -20,7 +20,6 @@ public class ExtentReportUtils {
     public static void createReport(){
         if (EXTENT_REPORT == null)
         {
-            //Utils.ensureDirectoryExists(fullReportFilePath);
             HTML_REPORTER = new ExtentHtmlReporter(fullReportFilePath);
             EXTENT_REPORT = new ExtentReports();
             EXTENT_REPORT.attachReporter(HTML_REPORTER);

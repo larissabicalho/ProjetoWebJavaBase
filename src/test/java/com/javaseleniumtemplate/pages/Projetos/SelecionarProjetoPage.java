@@ -1,6 +1,7 @@
 package com.javaseleniumtemplate.pages.Projetos;
 
 import com.javaseleniumtemplate.bases.PageBase;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;

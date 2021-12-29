@@ -1,23 +1,19 @@
 package com.javaseleniumtemplate.pages.Issues;
 
 import com.javaseleniumtemplate.bases.PageBase;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.io.IOException;
 
 public class VerTarefasPage extends PageBase {
     By botaoImprimirTarefas = By.xpath("//a[text()='Print Reports']");
     By acharTarefa = By.xpath("//td[@class='bug-id']");
-    String editarProjetoLink = "//div[@id='unassigned']/div[@class='widget-body']/div[@class='widget-main no-padding']/div[@class='table-responsive']/table/tbody/tr/td/a[text()=###]/.././a[@class='edit']";
     By textoDescricao = By.xpath("//td/textarea[@id='description']");
-    String descricaoValidar = "//*[text()='###']";
     By botaoAtualizar = By.xpath("//input[@value='Update Information']");
     By apagarTarefa = By.xpath("//input[@value='Delete']");
     By apagarTarefaConfirmar = By.xpath("//input[@value='Delete Issues']");
     By copiarTarefa = By.xpath("//input[@value='Clone']");
     By criarNovaTarefaCopiada = By.xpath("//input[@value='Submit Issue']");
-    String verTarefaNoFiltro = "//a[@href='/view.php?id=###']";
     By filtrarMonitorados = By.xpath("//a[text()='Monitored By']");
     By selecionarMonitor = By.name("monitor_user_id[]");
     By aplicarFiltro = By.xpath("//input[@value='Apply Filter']");
@@ -32,7 +28,6 @@ public class VerTarefasPage extends PageBase {
     By clicarApagar = By.xpath("//button[text()='Delete']");
     By clicarEditar = By.xpath("//button[text()='Edit']");
     By clicarApagarConfirmacao = By.xpath("//input[@value='Delete Note']");
-    String clicarEmTarefaSelecionado = "//a[@href='/view.php?id=###']/parent::td/parent::tr/td/div/label/span";
     By selecionarUmaAcao = By.name("action");
     By clicarOk = By.xpath("//input[@value='OK']");
     By confirmarFechamentoTarefa = By.xpath("//input[@value='Close Issues']");
@@ -44,28 +39,34 @@ public class VerTarefasPage extends PageBase {
     By selecionarUmStatus = By.name("new_status");
     By selecionarUmUsuario = By.name("handler_id");
     By selecionarAlterarUsuario = By.xpath("//input[@value='Assign To:']");
-    String selecionarUsuario = "//td[@class='bug-assigned-to']/a[text()='###']";
     By relacionarTarefa = By.name("dest_bug_id");
-    String verificarRelacoes = "//a[@href='view.php?id=###']";
     By clicarEmAdicionarRelacao = By.xpath("(//input[@value='Add'])[1]");
     By adicionarMarcador = By.name("tag_string");
     By clicarAplicar = By.xpath("//input[@value='Attach']");
-    String labelVerificarTag = "//a[text()='###']";
     By clicarEmExportar = By.xpath("//a[text()='CSV Export']");
     By clicarEmExportarExcel = By.xpath("//a[text()='Excel Export']");
     By clicarEmPrint = By.xpath("//a[text()='Print Reports']");
     By clicarEmWord = By.xpath("//i[@title='Word 2000']");
     By paraApagar = By.xpath("//span[@class='label label-sm label-default arrowed-in-right']");
 
+    String editarProjetoLink = "//div[@id='unassigned']/div[@class='widget-body']/div[@class='widget-main no-padding']/div[@class='table-responsive']/table/tbody/tr/td/a[text()=###]/.././a[@class='edit']";
+    String descricaoValidar = "//*[text()='###']";
+    String labelVerificarTag = "//a[text()='###']";
+    String verificarRelacoes = "//a[@href='view.php?id=###']";
+    String clicarEmTarefaSelecionado = "//a[@href='/view.php?id=###']/parent::td/parent::tr/td/div/label/span";
+    String selecionarUsuario = "//td[@class='bug-assigned-to']/a[text()='###']";
 
-    public boolean verificarSeElementoExiste(){
-       return returnIfElementExists(botaoImprimirTarefas);
+
+    public boolean verificarSeElementoExiste() {
+        return returnIfElementExists(botaoImprimirTarefas);
     }
 
-    public String idTarefaCerta(){return getText(acharTarefa);}
+    public String idTarefaCerta() {
+        return getText(acharTarefa);
+    }
 
-    public void editarProjeto(String idProjeto){
-        editarProjetoLink = editarProjetoLink.replace("###",idProjeto);
+    public void editarProjeto(String idProjeto) {
+        editarProjetoLink = editarProjetoLink.replace("###", idProjeto);
         click(By.xpath(editarProjetoLink));
     }
 
@@ -74,107 +75,160 @@ public class VerTarefasPage extends PageBase {
         sendKeys(textoDescricao, descricao);
     }
 
-    public String validarTextoModificado(String texto){
-        descricaoValidar = descricaoValidar.replace("###",texto);
+    public String validarTextoModificado(String texto) {
+        descricaoValidar = descricaoValidar.replace("###", texto);
         return getText(By.xpath(descricaoValidar));
     }
-    public void clicarEmAtualizar(){click(botaoAtualizar);}
 
-    public void clicarEmApagarTarefa(){click(apagarTarefa);}
-
-    public void clicarEmApagarTarefaConfirmar(){click(apagarTarefaConfirmar);}
-
-    public void clicarEmCopiarTarefa(){ click(copiarTarefa);}
-
-    public void clicarEmCriarNovaTarefaCopiada(){ click(criarNovaTarefaCopiada);}
-
-    public String verificarSeExisteTarefa(String idIssue){
-        verTarefaNoFiltro = verTarefaNoFiltro.replace("###",idIssue);
-        return getText(By.xpath(verTarefaNoFiltro));
+    public void clicarEmAtualizar() {
+        click(botaoAtualizar);
     }
 
-    public void clicarEmRelacionados(){click(filtrarResolvido);}
+    public void clicarEmApagarTarefa() {
+        click(apagarTarefa);
+    }
 
-    public void selecionarRelacionados(String index){comboBoxSelectByOption(selecionarResolvido,index);}
+    public void clicarEmApagarTarefaConfirmar() {
+        click(apagarTarefaConfirmar);
+    }
 
-    public void clicarEmMonitoradoPor(){click(filtrarMonitorados);}
+    public void clicarEmCopiarTarefa() {
+        click(copiarTarefa);
+    }
 
-    public void selecionarMonitor(String index){comboBoxSelectByOption(selecionarMonitor,index);}
+    public void clicarEmCriarNovaTarefaCopiada() {
+        click(criarNovaTarefaCopiada);
+    }
 
-    public void clicarEmAplicarFiltro(){click(aplicarFiltro);}
+    public String verificarSeExisteTarefa(String idIssue) {
+        verificarRelacoes = verificarRelacoes.replace("###", idIssue);
+        return getText(By.xpath(verificarRelacoes));
+    }
 
-    public void clicarEmRedefinirFiltro(){ click(redefinirFiltro);}
+    public void clicarEmRelacionados() {
+        click(filtrarResolvido);
+    }
 
-    public void clicarEmPrioridade(){click(filtrarPrioridade);}
+    public void selecionarRelacionados(String index) {
+        comboBoxSelectByOption(selecionarResolvido, index);
+    }
 
-    public void selecionarPrioridade(String index){comboBoxSelectByOption(selecionarPrioridade,index);}
+    public void clicarEmMonitoradoPor() {
+        click(filtrarMonitorados);
+    }
 
-    public void preencherAnotacoes(String anotacoes){sendKeys(adicionarTextoAnotacoes,anotacoes);}
+    public void selecionarMonitor(String index) {
+        comboBoxSelectByOption(selecionarMonitor, index);
+    }
 
-    public void clicarEmAdicionarAnotacao(){click(botaoAdicionarAnotacao);}
+    public void clicarEmAplicarFiltro() {
+        click(aplicarFiltro);
+    }
 
-    public void clicarEmAnotacao(){
+    public void clicarEmRedefinirFiltro() {
+        click(redefinirFiltro);
+    }
+
+    public void clicarEmPrioridade() {
+        click(filtrarPrioridade);
+    }
+
+    public void selecionarPrioridade(String index) {
+        comboBoxSelectByOption(selecionarPrioridade, index);
+    }
+
+    public void preencherAnotacoes(String anotacoes) {
+        sendKeys(adicionarTextoAnotacoes, anotacoes);
+    }
+
+    public void clicarEmAdicionarAnotacao() {
+        click(botaoAdicionarAnotacao);
+    }
+
+    public void clicarEmAnotacao() {
         waitForElement(verificarAnotacoes);
-        click(verificarAnotacoes);}
+        click(verificarAnotacoes);
+    }
 
-    public void clicarEmApagarAnotacoes(){
-     //  ScrollToElementJavaScript(paraApagar);
-       // ClickJavaScript(paraApagar);
+    public void clicarEmApagarAnotacoes() {
         mouseOver(paraApagar);
         click(clicarApagar);
     }
 
-    public void clicarEmApagarAnotacoesConfirmar(){click(clicarApagarConfirmacao);}
+    public void clicarEmApagarAnotacoesConfirmar() {
+        click(clicarApagarConfirmacao);
+    }
 
-    public String verificarAnotacoes(){
+    public String verificarAnotacoes() {
         return getText(verificarAnotacoes);
     }
 
-    public boolean verificarSeOElementoExisteAnotacoes(){
+    public boolean verificarSeOElementoExisteAnotacoes() {
         return returnIfElementExists(verificarAnotacoes);
     }
 
-    public void clicarEmEditarAnotacoes(){
+    public void clicarEmEditarAnotacoes() {
         mouseOver(paraApagar);
-        click(clicarEditar);}
-
-    public void limparEPreencherAnotacoes(String anotacoesNote){
-        clear(adicionarTextoAnotacoes);
-        sendKeys(adicionarTextoAnotacoes,anotacoesNote);
+        click(clicarEditar);
     }
 
-    public void selecionarUmaTarefa(String projectId){
-        clicarEmTarefaSelecionado = clicarEmTarefaSelecionado.replace("###",projectId);
+    public void limparEPreencherAnotacoes(String anotacoesNote) {
+        clear(adicionarTextoAnotacoes);
+        sendKeys(adicionarTextoAnotacoes, anotacoesNote);
+    }
+
+    public void selecionarUmaTarefa(String projectId) {
+        clicarEmTarefaSelecionado = clicarEmTarefaSelecionado.replace("###", projectId);
         waitForElement(By.xpath(clicarEmTarefaSelecionado));
         click(By.xpath(clicarEmTarefaSelecionado));
     }
 
-    public void clicarEmSelecionarUmaAcao(String acao){comboBoxSelectByVisibleText(selecionarUmaAcao,acao);}
+    public void clicarEmSelecionarUmaAcao(String acao) {
+        comboBoxSelectByVisibleText(selecionarUmaAcao, acao);
+    }
 
-    public void clicarEmOK(){click(clicarOk);}
+    public void clicarEmOK() {
+        click(clicarOk);
+    }
 
-    public void clicarEmFecharTarefa(){click(confirmarFechamentoTarefa);}
+    public void clicarEmFecharTarefa() {
+        click(confirmarFechamentoTarefa);
+    }
 
-    public void clicarEmEstado(){click(estadoFiltro);}
+    public void clicarEmEstado() {
+        click(estadoFiltro);
+    }
 
-    public void selecionarEstado(String index){comboBoxSelectByOption(selecionarEstadoFechadoFiltro,index);}
+    public void selecionarEstado(String index) {
+        comboBoxSelectByOption(selecionarEstadoFechadoFiltro, index);
+    }
 
-    public void clicarEmAlterarStatus(){click(selecionarAlterarStatus);}
+    public void clicarEmAlterarStatus() {
+        click(selecionarAlterarStatus);
+    }
 
-    public void clicarEmResolverTarefa(){click(confirmarResolucaoTarefa);}
+    public void clicarEmResolverTarefa() {
+        click(confirmarResolucaoTarefa);
+    }
 
-    public String verificarSeEstaResolvido(){
+    public String verificarSeEstaResolvido() {
         return getText(verificarResolucao);
     }
 
-    public void clicarEmSelecionarUmStatus(String index){comboBoxSelectByOption(selecionarUmStatus,index);}
+    public void clicarEmSelecionarUmStatus(String index) {
+        comboBoxSelectByOption(selecionarUmStatus, index);
+    }
 
-    public void clicarEmSelecionarUmUsuarioAtribuido(String index){comboBoxSelectByVisibleText(selecionarUmUsuario,index);}
+    public void clicarEmSelecionarUmUsuarioAtribuido(String index) {
+        comboBoxSelectByVisibleText(selecionarUmUsuario, index);
+    }
 
-    public void clicarEmSelecionarUmUsuario(){click(selecionarAlterarUsuario);}
+    public void clicarEmSelecionarUmUsuario() {
+        click(selecionarAlterarUsuario);
+    }
 
-    public String verificarSelecionarUmUsuario(String nomeUsuario){
-        selecionarUsuario = selecionarUsuario.replace("###",nomeUsuario);
+    public String verificarSelecionarUmUsuario(String nomeUsuario) {
+        selecionarUsuario = selecionarUsuario.replace("###", nomeUsuario);
         waitForElement(By.xpath(selecionarUsuario));
         return getText(By.xpath(selecionarUsuario));
     }
@@ -184,38 +238,50 @@ public class VerTarefasPage extends PageBase {
     }
 
 
-    public String verificarRelacao(String idTarefa){
-        verificarRelacoes = verificarRelacoes.replace("###",idTarefa);
+    public String verificarRelacao(String idTarefa) {
+        verificarRelacoes = verificarRelacoes.replace("###", idTarefa);
         waitForElement(By.xpath(verificarRelacoes));
         return getText(By.xpath(verificarRelacoes));
     }
 
-    public void adicionarRelacao(){click(clicarEmAdicionarRelacao);}
+    public void adicionarRelacao() {
+        click(clicarEmAdicionarRelacao);
+    }
 
-    public void adicionarMarcadorIssue(String idMarcador){ sendKeys(adicionarMarcador, idMarcador);}
+    public void adicionarMarcadorIssue(String idMarcador) {
+        sendKeys(adicionarMarcador, idMarcador);
+    }
 
-    public void clicarEmAplicar(){click(clicarAplicar);}
+    public void clicarEmAplicar() {
+        click(clicarAplicar);
+    }
 
-    public String verificarTag(String descricaoTag){
+    public String verificarTag(String descricaoTag) {
         labelVerificarTag = labelVerificarTag.replace("###", descricaoTag);
         waitForElement(By.xpath(labelVerificarTag));
         return getText(By.xpath(labelVerificarTag));
     }
 
-    public void clicarEmExportarCSV(){
+    public void clicarEmExportarCSV() {
         waitForElement(clicarEmExportar);
-        click(clicarEmExportar);}
-
-    public void clicarEmExportarWord(){click(clicarEmWord);}
-
-    public void clicarEmExportarExcel(){click(clicarEmExportarExcel);}
-
-    public void clicarEmPrint(){click(clicarEmPrint);}
-
-    public void esperarElemento(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(selecionarAlterarUsuario));
+        click(clicarEmExportar);
     }
 
+    public void clicarEmExportarWord() {
+        click(clicarEmWord);
+    }
+
+    public void clicarEmExportarExcel() {
+        click(clicarEmExportarExcel);
+    }
+
+    public void clicarEmPrint() {
+        click(clicarEmPrint);
+    }
+
+    public void esperarElemento() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(selecionarAlterarUsuario));
+    }
 
 
 }

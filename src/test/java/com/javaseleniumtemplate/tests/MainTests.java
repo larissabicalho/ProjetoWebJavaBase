@@ -9,6 +9,7 @@ import com.javaseleniumtemplate.flows.LoginFlows;
 import com.javaseleniumtemplate.pages.Issues.AssignedPage;
 import com.javaseleniumtemplate.pages.MainPage;
 import com.javaseleniumtemplate.utils.Arquivos;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -70,8 +71,6 @@ public class MainTests extends TestBase {
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
-
-
         mainPage.clicarEmMinhaVisao();
         mainPage.clicarNãoAtribuidos();
 
@@ -102,8 +101,6 @@ public class MainTests extends TestBase {
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
-
-
         mainPage.clicarEmMinhaVisao();
         mainPage.clicarRelatados();
 
@@ -133,7 +130,6 @@ public class MainTests extends TestBase {
 
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
-
 
         mainPage.clicarEmMinhaVisao();
         mainPage.clicarResolvidos();
@@ -169,7 +165,6 @@ public class MainTests extends TestBase {
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
 
-
         mainPage.clicarEmMinhaVisao();
         mainPage.clicarMonitorados();
 
@@ -201,7 +196,6 @@ public class MainTests extends TestBase {
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
-
         mainPage.clicarEmMinhaVisao();
         mainPage.clicarEmModificados();
 
@@ -224,7 +218,6 @@ public class MainTests extends TestBase {
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
-
         mainPage.clicarEmAdministrador();
         mainPage.clicarEmSair();
 
@@ -232,8 +225,6 @@ public class MainTests extends TestBase {
 
 
     }
-
-
 
 
 }

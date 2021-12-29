@@ -34,7 +34,7 @@ public class VerTarefasTests extends TestBase {
         verTarefasPage = new VerTarefasPage();
 
         Users usersDados = Arquivos.getJsonUsersPadrao();
-        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
+        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao, usersDados.getPassword());
 
 
         mainPage.clicarEmVerTarefas();
@@ -45,7 +45,7 @@ public class VerTarefasTests extends TestBase {
     }
 
     @Test
-    public void exportarParaCSV () throws IOException {
+    public void exportarParaCSV() throws IOException {
 
         ProjetosDBSteps.insereProjeto();
         String idProjeto = ProjetosDBSteps.retornaDadosProjeto().get(0);
@@ -59,7 +59,7 @@ public class VerTarefasTests extends TestBase {
         verTarefasPage = new VerTarefasPage();
 
         Users usersDados = Arquivos.getJsonUsersPadrao();
-        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
+        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao, usersDados.getPassword());
 
 
         mainPage.clicarEmVerTarefas();
@@ -92,7 +92,7 @@ public class VerTarefasTests extends TestBase {
         verTarefasPage = new VerTarefasPage();
 
         Users usersDados = Arquivos.getJsonUsersPadrao();
-        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
+        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao, usersDados.getPassword());
 
 
         mainPage.clicarEmVerTarefas();
@@ -123,7 +123,7 @@ public class VerTarefasTests extends TestBase {
         verTarefasPage = new VerTarefasPage();
 
         Users usersDados = Arquivos.getJsonUsersPadrao();
-        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
+        loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao, usersDados.getPassword());
 
 
         mainPage.clicarEmVerTarefas();

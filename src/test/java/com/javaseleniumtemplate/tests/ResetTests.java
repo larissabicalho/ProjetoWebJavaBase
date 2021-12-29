@@ -2,12 +2,10 @@ package com.javaseleniumtemplate.tests;
 
 import com.javaseleniumtemplate.bases.TestBase;
 import com.javaseleniumtemplate.dbsteps.Usuarios.UsuariosDBSteps;
-import com.javaseleniumtemplate.defaultParameters.GlobalStaticParameters;
-import com.javaseleniumtemplate.enums.Users;
 import com.javaseleniumtemplate.pages.LoginPage;
 import com.javaseleniumtemplate.pages.MainPage;
 import com.javaseleniumtemplate.pages.ResetPage;
-import com.javaseleniumtemplate.utils.Arquivos;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

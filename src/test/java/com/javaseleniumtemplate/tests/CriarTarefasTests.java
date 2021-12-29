@@ -12,8 +12,7 @@ import com.javaseleniumtemplate.pages.MainPage;
 import com.javaseleniumtemplate.pages.Issues.CriarTarefasPage;
 import com.javaseleniumtemplate.utils.Arquivos;
 import com.javaseleniumtemplate.utils.GerarDados;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +28,7 @@ public class CriarTarefasTests extends TestBase {
 
     //Tests
     @Test
-    public void criarTarefasComSucesso() throws FileNotFoundException, InterruptedException {
+    public void criarTarefasComSucesso() throws FileNotFoundException {
 
         ProjetosDBSteps.insereProjeto();
 
@@ -42,9 +41,8 @@ public class CriarTarefasTests extends TestBase {
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
         mainPage.clicarEmCriarTarefas();
-        String idProjeto = ProjetosDBSteps.retornaDadosProjeto().get(0);
-       // criarTarefasPage.selecionarNoComboProjeto(idProjeto);
-      //  criarTarefasPage.clicarEmSelecionarProjeto();
+
+
         criarTarefasPage.preencherResumoArea(GerarDados.sumarioIssue());
         criarTarefasPage.preencherDescricaoArea(GerarDados.descricaoTexto());
         criarTarefasPage.clicarEmNovaTarefa();
@@ -55,7 +53,6 @@ public class CriarTarefasTests extends TestBase {
         Assert.assertEquals(idIssue , tarefa.replaceFirst("^0+(?!$)",""));
 
 
-        System.out.println(ProjetosDBSteps.retornaDadosProjeto().get(1));
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
         BuscarIssueDBSteps.deletarTexto();
@@ -64,7 +61,7 @@ public class CriarTarefasTests extends TestBase {
     }
 
     @Test
-    public void criarTarefasComAttachmentSucesso() throws FileNotFoundException, InterruptedException {
+    public void criarTarefasComAttachmentSucesso() throws FileNotFoundException{
 
         File CAMINHO_DOCUMENTOS_ORIGEM = new File(GlobalStaticParameters.attachment);
         ProjetosDBSteps.insereProjeto();
@@ -78,12 +75,9 @@ public class CriarTarefasTests extends TestBase {
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
         mainPage.clicarEmCriarTarefas();
-        String idProjeto = ProjetosDBSteps.retornaDadosProjeto().get(0);
-        // criarTarefasPage.selecionarNoComboProjeto(idProjeto);
-        //  criarTarefasPage.clicarEmSelecionarProjeto();
+
         criarTarefasPage.preencherResumoArea(GerarDados.sumarioIssue());
         criarTarefasPage.preencherDescricaoArea(GerarDados.descricaoTexto());
-
         criarTarefasPage.clicarNoDropBox();
         criarTarefasPage.clicarNoDrop();
 
@@ -94,7 +88,6 @@ public class CriarTarefasTests extends TestBase {
         }
 
         criarTarefasPage.clicarEmNovaTarefa();
-
         verTarefasPage.esperarElemento();
 
         String idIssue = BuscarIssueDBSteps.retornaDadosIssue().get(0);
@@ -103,7 +96,6 @@ public class CriarTarefasTests extends TestBase {
         Assert.assertEquals(idIssue , tarefa.replaceFirst("^0+(?!$)",""));
 
 
-        System.out.println(ProjetosDBSteps.retornaDadosProjeto().get(1));
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
         BuscarIssueDBSteps.deletarAttachment();

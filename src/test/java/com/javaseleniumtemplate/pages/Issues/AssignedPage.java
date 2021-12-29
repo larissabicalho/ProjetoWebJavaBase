@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 public class AssignedPage extends PageBase {
     String assigned = "//a[text()=###]";
 
-    public Boolean verificarAssigned(String idIssue){
-        assigned = assigned.replace("###",idIssue);
+    public Boolean verificarAssigned(String idIssue) {
+        assigned = assigned.replace("###", idIssue);
         return returnIfElementIsDisplayed(By.xpath(assigned));
     }
 

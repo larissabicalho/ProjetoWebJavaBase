@@ -37,8 +37,6 @@ public class DriverFactory {
                     INSTANCE = Browsers.getRemoteChromeHeadless();
                 }else if(browser.equals("firefox")){
                     INSTANCE = Browsers.getRemoteFirefox();
-              //  }else if (browser.equals("ie")){
-                //    INSTANCE = Browsers.getRemoteInternetExplorer();
                 }else if (browser.equals("opera")){
                     INSTANCE = Browsers.getRemoteOpera();
                 }else{

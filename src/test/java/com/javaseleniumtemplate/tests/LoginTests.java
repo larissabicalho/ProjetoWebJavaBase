@@ -34,7 +34,9 @@ public class LoginTests extends TestBase {
         //Test
         loginPage.preencherUsuario(usuario);
         loginPage.clicarEmLogin();
+
         Users usersDados = Arquivos.getJsonUsers();
+
         loginPage.preencherSenha(usersDados.getPassword());
         loginPage.clicarEmLogin();
 

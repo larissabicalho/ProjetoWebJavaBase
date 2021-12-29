@@ -19,12 +19,12 @@ public class ProjetosDBSteps {
         DBUtils.getQueryResult(query);
     }
 
-    public static String retornaName(){
+    public static String retornaName() {
         String query = Utils.getFileContent(queriesPath + "retornarProjeto.sql");
         return DBUtils.getQueryResult(query).get(0);
     }
 
-    public static void deletarProjetoDB(String name){
+    public static void deletarProjetoDB(String name) {
         String query = Utils.getFileContent(queriesPath + "deletarProjetoNoBanco.sql").replace("$name", name);
         DBUtils.getQueryResult(query);
     }

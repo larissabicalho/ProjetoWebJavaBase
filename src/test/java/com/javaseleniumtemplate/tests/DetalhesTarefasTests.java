@@ -7,11 +7,11 @@ import com.javaseleniumtemplate.dbsteps.Usuarios.UsuariosDBSteps;
 import com.javaseleniumtemplate.defaultParameters.GlobalStaticParameters;
 import com.javaseleniumtemplate.enums.Users;
 import com.javaseleniumtemplate.flows.LoginFlows;
-import com.javaseleniumtemplate.pages.Issues.AssignedPage;
 import com.javaseleniumtemplate.pages.Issues.VerTarefasPage;
 import com.javaseleniumtemplate.pages.MainPage;
 import com.javaseleniumtemplate.utils.Arquivos;
 import com.javaseleniumtemplate.utils.GerarDados;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -105,7 +105,6 @@ public class DetalhesTarefasTests extends TestBase {
         String idTexto = BuscarIssueDBSteps.retornaDadosTexto().get(0);
         BuscarIssueDBSteps.insereIssue(idProjeto, idTexto);
         String idIssue = BuscarIssueDBSteps.retornaDadosIssue().get(0);
-
 
 
         loginFlows = new LoginFlows();

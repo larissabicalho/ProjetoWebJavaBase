@@ -32,6 +32,7 @@ public class GerenciarUsuariosTests extends TestBase {
         String username = GerarDados.nomeUser();
         String fullName = GerarDados.fullName();
         String email = GerarDados.email();
+
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
@@ -83,6 +84,7 @@ public class GerenciarUsuariosTests extends TestBase {
         String username = "USER" + ExecutarJavaScriptNode.executaJavaScriptAleatorio();
         String fullName = GerarDados.fullName();
         String email = GerarDados.email();
+
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 

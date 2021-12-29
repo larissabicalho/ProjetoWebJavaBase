@@ -9,13 +9,13 @@ public class MarcadoresDBSteps {
     private static String queriesPath = "src/test/java/com/javaseleniumtemplate/queries/marcadoresqueries/";
 
 
-    public static String retornaName(){
+    public static String retornaName() {
         String query = Utils.getFileContent(queriesPath + "retornarMarcador.sql");
 
         return DBUtils.getQueryResult(query).get(0);
     }
 
-    public static void deletarMarcadorDB(String name){
+    public static void deletarMarcadorDB(String name) {
         String query = Utils.getFileContent(queriesPath + "deletarMarcadorNoBanco.sql").replace("$name", name);
         DBUtils.getQueryResult(query);
     }

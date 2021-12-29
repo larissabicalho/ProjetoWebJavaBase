@@ -21,7 +21,6 @@ public class ExecutarJavaScriptNode {
             engine.put("valor", valor);
             engine.put("valorEsperado", valorEsperado);
             engine.eval(reader);
-           // engine.eval("var s= makeid(length)");
             engine.eval("var assert= x(valor,valorEsperado)");
             boolean aleatorio = (Boolean) engine.get("assert");
             return aleatorio;

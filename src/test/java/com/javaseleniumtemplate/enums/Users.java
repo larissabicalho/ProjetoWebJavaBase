@@ -1,13 +1,14 @@
 package com.javaseleniumtemplate.enums;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.io.File;
 import java.io.IOException;
+
 @NoArgsConstructor(force = true)
 public class Users {
     @NonNull

@@ -1,6 +1,7 @@
 package com.javaseleniumtemplate.pages.Usuarios;
 
 import com.javaseleniumtemplate.bases.PageBase;
+
 import org.openqa.selenium.By;
 
 public class GerenciarUsuariosPage extends PageBase {
@@ -16,28 +17,28 @@ public class GerenciarUsuariosPage extends PageBase {
         click(clicarEmGerenciarUsuarios);
     }
 
-    public void clicarEmNovaConta(){
+    public void clicarEmNovaConta() {
         click(clicarEmNovaConta);
     }
 
-    public void preencherUsuario(String usuario){
+    public void preencherUsuario(String usuario) {
         sendKeys(nomeUsuario, usuario);
     }
 
-    public void preencherNomeVerdadeiro(String nomeVerdadeiroTexto){
+    public void preencherNomeVerdadeiro(String nomeVerdadeiroTexto) {
         sendKeys(nomeVerdadeiro, nomeVerdadeiroTexto);
     }
 
-    public void preencherEmail(String emailTexto){
+    public void preencherEmail(String emailTexto) {
         sendKeys(email, emailTexto);
     }
 
-    public void clicarEmCriarUsuario(){
+    public void clicarEmCriarUsuario() {
         click(clicarCriarUsuario);
     }
 
     public String validarTextoErro() {
-       return getText(validarMensagemDeErro);
+        return getText(validarMensagemDeErro);
     }
 
 }

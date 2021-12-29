@@ -6,11 +6,9 @@ import com.javaseleniumtemplate.defaultParameters.GlobalStaticParameters;
 import com.javaseleniumtemplate.enums.Users;
 import com.javaseleniumtemplate.flows.LoginFlows;
 import com.javaseleniumtemplate.pages.MainPage;
-import com.javaseleniumtemplate.pages.Projetos.GerenciarProjetosPage;
 import com.javaseleniumtemplate.pages.Projetos.SelecionarProjetoPage;
 import com.javaseleniumtemplate.utils.Arquivos;
-import com.javaseleniumtemplate.utils.GerarDados;
-import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

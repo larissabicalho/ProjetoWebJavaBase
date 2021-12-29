@@ -7,6 +7,7 @@ import com.javaseleniumtemplate.flows.LoginFlows;
 import com.javaseleniumtemplate.pages.MainPage;
 import com.javaseleniumtemplate.pages.Resumo.ResumoPage;
 import com.javaseleniumtemplate.utils.Arquivos;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

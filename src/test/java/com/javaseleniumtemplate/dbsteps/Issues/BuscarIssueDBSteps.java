@@ -9,8 +9,6 @@ import java.util.ArrayList;
 public class BuscarIssueDBSteps {
     private static String queriesPath = "src/test/java/com/javaseleniumtemplate/queries/issuesqueries/";
 
-
-
     public static void insereIssue(String projectId, String idTexto) {
         String query = Utils.getFileContent(queriesPath + "inserirIssue.sql");
         query = query.replace("$project_id", projectId);
@@ -147,6 +145,7 @@ public class BuscarIssueDBSteps {
         String query = Utils.getFileContent(queriesPath + "deletarBugTags.sql");
         DBUtils.getQueryResult(query);
     }
+
     public static void deletarBugHistory(String idBugHistory) {
         String query = Utils.getFileContent(queriesPath + "deletarBugHistory.sql");
         query = query.replace("$bug_id", idBugHistory);

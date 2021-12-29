@@ -1,7 +1,7 @@
 package com.javaseleniumtemplate.pages.PerfisGlobais;
 
 import com.javaseleniumtemplate.bases.PageBase;
-import com.javaseleniumtemplate.dbsteps.PerfisGlobais.PerfisGlobaisDBSteps;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
@@ -13,39 +13,40 @@ public class GerenciarPerfisGlobaisPage extends PageBase {
     By descricaoPerfil = By.id("description");
     By clicarCriarPerfilGlobal = By.xpath("//input[@value='Add Profile']");
 
-    public void clicarEmGerenciarPerfisGlobais() {click(clicarEmGerenciarPerfisGlobais);}
+    public void clicarEmGerenciarPerfisGlobais() {
+        click(clicarEmGerenciarPerfisGlobais);
+    }
 
-    public void preencherNomePlataforma(String plataforma){
+    public void preencherNomePlataforma(String plataforma) {
         sendKeys(nomePlataforma, plataforma);
     }
 
-    public void preencherNomeSo(String SO){
+    public void preencherNomeSo(String SO) {
         sendKeys(nomeSO, SO);
     }
 
-    public void preencherVersaoSo(String versao){
+    public void preencherVersaoSo(String versao) {
         sendKeys(versaoSO, versao);
     }
 
-    public void preencherDescricaoPerfil(String descricao){
+    public void preencherDescricaoPerfil(String descricao) {
         sendKeys(descricaoPerfil, descricao);
     }
 
 
-    public void clicarEmCriarPerfilGlobal(){ click(clicarCriarPerfilGlobal);}
+    public void clicarEmCriarPerfilGlobal() {
+        click(clicarCriarPerfilGlobal);
+    }
 
-    public boolean verificarSeExistePerfisGlobais(String texto){
+    public boolean verificarSeExistePerfisGlobais(String texto) {
         try {
             Select perfisGlobais = new Select(driver.findElement(By.id("select-profile")));
             perfisGlobais.selectByVisibleText(texto);
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
 
-
     }
-
 
 }

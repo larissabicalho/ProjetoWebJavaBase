@@ -223,20 +223,14 @@ public class DataDrivenTests extends TestBase {
         Users usersDados = Arquivos.getJsonUsersPadrao();
         loginFlows.efetuarLogin(GlobalStaticParameters.userPadrao,usersDados.getPassword());
 
-     //   String idProjeto = ProjetosDBSteps.retornaDadosProjeto().get(0);
 
         mainPage.clicarEmCriarTarefas();
-
-
-     //   criarTarefasPage.selecionarNoComboProjeto(idProjeto);
-     //   criarTarefasPage.clicarEmSelecionarProjeto();
 
         criarTarefasPage.preencherResumoArea(sumario);
         criarTarefasPage.preencherDescricaoArea(descricao);
         criarTarefasPage.clicarEmNovaTarefa();
 
         String idIssue = BuscarIssueDBSteps.retornaDadosIssue().get(0);
-
         String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue);
 
         Assert.assertEquals(idIssue,  tarefa.replaceFirst("^0+(?!$)",""));
