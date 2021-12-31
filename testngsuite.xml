@@ -3,13 +3,13 @@
     <test name="TestNgMavenTest">
         <classes>
             <class name="com.javaseleniumtemplate.tests.LoginTests"/>
-            <class name="com.javaseleniumtemplate.tests.DetalhesTarefasTests"/>
-            <class name="com.javaseleniumtemplate.tests.FiltrarTarefasTests"/>
-            <class name="com.javaseleniumtemplate.tests.GerenciarMarcadoresTests"/>
-            <class name="com.javaseleniumtemplate.tests.GerenciarPerfisGlobaisTests"/>
-            <class name="com.javaseleniumtemplate.tests.GerenciarProjetosTests"/>
-            <class name="com.javaseleniumtemplate.tests.GerenciarUsuariosTests"/>
-            <!-- <class name="com.javaseleniumtemplate.tests.ReportIssueTests"/>-->
+             <!-- <class name="com.javaseleniumtemplate.tests.DetalhesTarefasTests"/>-->
+            <!--  <class name="com.javaseleniumtemplate.tests.FiltrarTarefasTests"/>-->
+            <!--  <class name="com.javaseleniumtemplate.tests.GerenciarMarcadoresTests"/>-->
+            <!--  <class name="com.javaseleniumtemplate.tests.GerenciarPerfisGlobaisTests"/>-->
+            <!--  <class name="com.javaseleniumtemplate.tests.GerenciarProjetosTests"/>-->
+            <!--  <class name="com.javaseleniumtemplate.tests.GerenciarUsuariosTests"/>-->
+            <!--  <class name="com.javaseleniumtemplate.tests.ReportIssueTests"/>-->
         </classes>
     </test>
 </suite>
