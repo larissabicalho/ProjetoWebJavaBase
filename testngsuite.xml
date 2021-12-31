@@ -2,8 +2,8 @@
 <suite name="JavaSeleniumTemplateTests" parallel="false">
     <test name="TestNgMavenTest">
         <classes>
-            <class name="com.javaseleniumtemplate.tests.LoginTests"/>
-             <!-- <class name="com.javaseleniumtemplate.tests.DetalhesTarefasTests"/>-->
+           <!--   <class name="com.javaseleniumtemplate.tests.LoginTests"/>-->
+    <class name="com.javaseleniumtemplate.tests.DetalhesTarefasTests"/>
             <!--  <class name="com.javaseleniumtemplate.tests.FiltrarTarefasTests"/>-->
             <!--  <class name="com.javaseleniumtemplate.tests.GerenciarMarcadoresTests"/>-->
             <!--  <class name="com.javaseleniumtemplate.tests.GerenciarPerfisGlobaisTests"/>-->
