@@ -48,12 +48,13 @@ public class VerTarefasPage extends PageBase {
     By clicarEmPrint = By.xpath("//a[text()='Print Reports']");
     By clicarEmWord = By.xpath("//i[@title='Word 2000']");
     By paraApagar = By.xpath("//span[@class='label label-sm label-default arrowed-in-right']");
-
+r
     String editarProjetoLink = "//div[@id='unassigned']/div[@class='widget-body']/div[@class='widget-main no-padding']/div[@class='table-responsive']/table/tbody/tr/td/a[text()=###]/.././a[@class='edit']";
     String descricaoValidar = "//*[text()='###']";
     String labelVerificarTag = "//a[text()='###']";
     String verificarRelacoes = "//a[@href='view.php?id=###']";
     String verificarRelacoesResolvidas="//a[text()='Resolvidos']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
+    String verificarRelacoesMonitoradas="//a[text()='Monitorados por Mim']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
     String clicarEmTarefaSelecionado = "//a[@href='/view.php?id=###']/parent::td/parent::tr/td/div/label/span";
     String selecionarUsuario = "//td[@class='bug-assigned-to']/a[text()='###']";
 
@@ -111,6 +112,10 @@ public class VerTarefasPage extends PageBase {
         return getText(By.xpath(verificarRelacoesResolvidas));
     }
 
+     public String verificarSeExisteTarefaMonitorada(String idIssue) {
+        verificarRelacoesMonitoradas = verificarRelacoesMonitoradas.replace("###", idIssue);
+        return getText(By.xpath(verificarRelacoesMonitoradas));
+    }
 
     public void clicarEmRelacionados() {
         click(filtrarResolvido);
