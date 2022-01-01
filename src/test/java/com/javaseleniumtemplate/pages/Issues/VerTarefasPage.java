@@ -53,6 +53,7 @@ public class VerTarefasPage extends PageBase {
     String descricaoValidar = "//*[text()='###']";
     String labelVerificarTag = "//a[text()='###']";
     String verificarRelacoes = "//a[@href='view.php?id=###']";
+    String verificarRelacoesResolvidas="//a[text()='Resolvidos']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
     String clicarEmTarefaSelecionado = "//a[@href='/view.php?id=###']/parent::td/parent::tr/td/div/label/span";
     String selecionarUsuario = "//td[@class='bug-assigned-to']/a[text()='###']";
 
@@ -104,6 +105,12 @@ public class VerTarefasPage extends PageBase {
         verificarRelacoes = verificarRelacoes.replace("###", idIssue);
         return getText(By.xpath(verificarRelacoes));
     }
+    
+     public String verificarSeExisteTarefaResolvida(String idIssue) {
+        verificarRelacoesResolvidas = verificarRelacoesResolvidas.replace("###", idIssue);
+        return getText(By.xpath(verificarRelacoesResolvidas));
+    }
+
 
     public void clicarEmRelacionados() {
         click(filtrarResolvido);
