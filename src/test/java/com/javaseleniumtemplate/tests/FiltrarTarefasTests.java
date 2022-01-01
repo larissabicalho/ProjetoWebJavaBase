@@ -49,7 +49,7 @@ public class FiltrarTarefasTests extends TestBase {
         verTarefasPage.selecionarMonitor(GlobalStaticParameters.opcaoMonitoramento);
         verTarefasPage.clicarEmAplicarFiltro();
 
-        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replace("000","");
+        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replaceFirst("^0+(?!$)","");
 
         verTarefasPage.clicarEmRedefinirFiltro();
 
@@ -91,7 +91,7 @@ public class FiltrarTarefasTests extends TestBase {
         verTarefasPage.selecionarRelacionados(GlobalStaticParameters.opcaoMonitoramento);
         verTarefasPage.clicarEmAplicarFiltro();
 
-        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replace("000","");
+        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replaceFirst("^0+(?!$)","");
 
         verTarefasPage.clicarEmRedefinirFiltro();
 
@@ -133,7 +133,7 @@ public class FiltrarTarefasTests extends TestBase {
         verTarefasPage.selecionarPrioridade(GlobalStaticParameters.filtarUrgente);
         verTarefasPage.clicarEmAplicarFiltro();
 
-        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replace("000","");
+        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replaceFirst("^0+(?!$)","");
 
         verTarefasPage.clicarEmRedefinirFiltro();
 
@@ -176,7 +176,7 @@ public class FiltrarTarefasTests extends TestBase {
         verTarefasPage.selecionarEstado(GlobalStaticParameters.estado);
         verTarefasPage.clicarEmAplicarFiltro();
 
-        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replace("000","");
+        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replaceFirst("^0+(?!$)","");
 
         verTarefasPage.clicarEmRedefinirFiltro();
 
