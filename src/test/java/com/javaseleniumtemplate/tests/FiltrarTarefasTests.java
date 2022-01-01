@@ -91,7 +91,7 @@ public class FiltrarTarefasTests extends TestBase {
         verTarefasPage.selecionarRelacionados(GlobalStaticParameters.opcaoMonitoramento);
         verTarefasPage.clicarEmAplicarFiltro();
 
-        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replaceFirst("^0+(?!$)","");
+        String tarefa = verTarefasPage.verificarSeExisteTarefaResolvida(idIssue).replaceFirst("^0+(?!$)","");
 
         verTarefasPage.clicarEmRedefinirFiltro();
 
