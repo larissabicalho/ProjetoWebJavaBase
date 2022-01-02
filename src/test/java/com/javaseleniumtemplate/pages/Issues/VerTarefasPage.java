@@ -48,7 +48,6 @@ public class VerTarefasPage extends PageBase {
     By clicarEmPrint = By.xpath("//a[text()='Print Reports']");
     By clicarEmWord = By.xpath("//i[@title='Word 2000']");
     By paraApagar = By.xpath("//span[@class='label label-sm label-default arrowed-in-right']");
-r
     String editarProjetoLink = "//div[@id='unassigned']/div[@class='widget-body']/div[@class='widget-main no-padding']/div[@class='table-responsive']/table/tbody/tr/td/a[text()=###]/.././a[@class='edit']";
     String descricaoValidar = "//*[text()='###']";
     String labelVerificarTag = "//a[text()='###']";
@@ -71,7 +70,6 @@ r
         editarProjetoLink = editarProjetoLink.replace("###", idProjeto);
         click(By.xpath(editarProjetoLink));
     }
-r
     public void limparEPreencher(String descricao) {
         clear(textoDescricao);
         sendKeys(textoDescricao, descricao);
