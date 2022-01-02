@@ -26,6 +26,7 @@ public class WebdavUtils {
 
     public static List<DavResource> getResourcesFrom(String path) throws IOException {
         String url = BASE_URL + "/" + path;
+        System.out.println(url);
         Sardine sardine = getSardine();
         try {
             if (sardine.exists(url)) {
@@ -50,7 +51,7 @@ public class WebdavUtils {
                 String arquivo = resource.getHref().toString();
                 if(arquivo.contains(".csv")) {
                     System.out.println("Excluindo o arquivo " + arquivo);
-                    sardine.delete("http://127.0.0.1:8090"+"/data/Downloads/" + arquivo);
+                    sardine.delete("http://127.0.0.1:8090" + arquivo);
                 }
             }
             return true;
