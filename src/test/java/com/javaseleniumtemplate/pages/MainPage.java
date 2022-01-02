@@ -11,7 +11,7 @@ public class MainPage extends PageBase {
     By lostPassword = By.xpath("//a[text()='Lost your password?']");
     By emailFielReset = By.id("email-field");
     By clicarEmGerenciarLink = By.xpath("//span[text()=' Manage ']");
-    By clicarVerTarefas = By.xpath("//i[@class='menu-icon fa fa-list-alt']");
+    By clicarVerTarefas = By.xpath("//i[@class='menu-icon fa fa-dashboard']");
     By clicarCriarTarefas = By.xpath("//span[text()=' Report Issue ']");
     By clicarResumo = By.xpath("//a[@href='/summary_page.php']/span");
     By clicarMinhaVisao = By.xpath("//a[@href='/my_view_page.php']/span");
