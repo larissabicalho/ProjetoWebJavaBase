@@ -54,7 +54,7 @@ public class VerTarefasPage extends PageBase {
     String verificarRelacoes = "//a[text()='Unassigned']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
     String verificarRelacoesResolvidas="//a[text()='Resolved']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
     String verificarRelacoesMonitoradas="//a[text()='Monitored by me']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
-    String clicarEmTarefaSelecionado = "//a[@href='/view.php?id=###']/parent::td/parent::tr/td/div/label/span";
+    String clicarEmTarefaSelecionado = "//a[text()='Unassigned']/parent::h4/parent::div/parent::div//a[@href='/view.php?id=###']";
     String selecionarUsuario = "//td[@class='bug-assigned-to']/a[text()='###']";
 
 
