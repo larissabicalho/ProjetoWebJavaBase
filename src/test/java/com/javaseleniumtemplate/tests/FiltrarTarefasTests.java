@@ -49,7 +49,7 @@ public class FiltrarTarefasTests extends TestBase {
         verTarefasPage.selecionarMonitor(GlobalStaticParameters.opcaoMonitoramento);
         verTarefasPage.clicarEmAplicarFiltro();
 
-        String tarefa = verTarefasPage.verificarSeExisteTarefa(idIssue).replaceFirst("^0+(?!$)","");
+        String tarefa = verTarefasPage.verificarSeExisteTarefaMonitorada(idIssue).replaceFirst("^0+(?!$)","");
 
         verTarefasPage.clicarEmRedefinirFiltro();
 
