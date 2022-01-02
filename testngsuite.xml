@@ -2,7 +2,7 @@
 <suite name="JavaSeleniumTemplateTests" parallel="false">
     <test name="TestNgMavenTest">
         <classes>
-             <class name="com.javaseleniumtemplate.tests.FiltrarTarefasTests"/>
+          <class name="com.javaseleniumtemplate.tests.VerTarefasTests"/>
         </classes>
     </test>
 </suite>
