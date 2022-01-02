@@ -50,7 +50,7 @@ public class WebdavUtils {
                 String arquivo = resource.getHref().toString();
                 if(arquivo.contains(".csv")) {
                     System.out.println("Excluindo o arquivo " + arquivo);
-                    sardine.delete("http://127.0.0.1:8090"+"/data/Downloads/ + arquivo);
+                    sardine.delete("http://127.0.0.1:8090"+"/data/Downloads/" + arquivo);
                 }
             }
             return true;
