@@ -25,7 +25,7 @@ public class WebdavUtils {
     }
 
     public static List<DavResource> getResourcesFrom(String path) throws IOException {
-        String url = BASE_URL + "/" + path;
+        String url = BASE_URL + path;
         System.out.println(url);
         Sardine sardine = getSardine();
         try {
