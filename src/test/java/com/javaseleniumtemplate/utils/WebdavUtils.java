@@ -14,7 +14,7 @@ import java.util.Properties;
 
 
 public class WebdavUtils {
-    private static final String BASE_URL = "http://172.18.0.6:8090";
+    private static final String BASE_URL = "http://127.0.0.1:8090";
 
     private WebdavUtils() {
         throw new IllegalStateException();
@@ -50,7 +50,7 @@ public class WebdavUtils {
                 String arquivo = resource.getHref().toString();
                 if(arquivo.contains(".csv")) {
                     System.out.println("Excluindo o arquivo " + arquivo);
-                    sardine.delete("http://172.18.0.6:8090" + arquivo);
+                    sardine.delete("http://http://127.0.0.1:8090" + arquivo);
                 }
             }
             return true;
