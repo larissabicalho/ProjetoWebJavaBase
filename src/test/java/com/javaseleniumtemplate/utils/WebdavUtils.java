@@ -14,7 +14,7 @@ import java.util.Properties;
 
 
 public class WebdavUtils {
-    private static final String BASE_URL = "http://localhost:8090";
+    private static final String BASE_URL = "http://192.168.100.19:8090";
 
     private WebdavUtils() {
         throw new IllegalStateException();
