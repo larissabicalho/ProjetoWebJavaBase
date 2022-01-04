@@ -54,7 +54,7 @@ public class VerTarefasPage extends PageBase {
     String verificarRelacoes = "//a[@href='/view.php?id=###']";
     String verificarRelacoesResolvidas="//a[@href='/view.php?id=###']";
     String verificarRelacoesMonitoradas="//a[@href='/view.php?id=###']";
-    String verificarRelacoesSub="//a[@href='view.php?id=###']";
+    String verificarRelacoesSub ="//a[@href='view.php?id=###']";
     String clicarEmTarefaSelecionado = "//a[@href='/view.php?id=###']/parent::td/parent::tr/td/div/label/span";
     String selecionarUsuario = "//td[@class='bug-assigned-to']/a[text()='###']";
 
@@ -107,7 +107,7 @@ public class VerTarefasPage extends PageBase {
         return getText(By.xpath(verificarRelacoes));
     }
     
-        public String verificarSeExisteTarefaSub(String idIssue) {
+    public String verificarSeExisteTarefaSub(String idIssue) {
         verificarRelacoesSub = verificarRelacoesSub.replace("###", idIssue);
         waitForElement(By.xpath(verificarRelacoesSub));
         return getText(By.xpath(verificarRelacoesSub));
