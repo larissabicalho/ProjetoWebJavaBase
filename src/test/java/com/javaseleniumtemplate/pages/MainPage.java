@@ -12,7 +12,7 @@ public class MainPage extends PageBase {
     By emailFielReset = By.id("email-field");
     By clicarEmGerenciarLink = By.xpath("//i[@class='menu-icon fa fa-gears']");
     By clicarVerTarefas = By.xpath("//i[@class='menu-icon fa fa-list-alt']");
-    By clicarCriarTarefas = By.xpath("//span[text()=' Report Issue ']");
+    By clicarCriarTarefas = By.xpath("//i[@class='menu-icon fa fa-edit']");
     By clicarResumo = By.xpath("//a[@href='/summary_page.php']/span");
     By clicarMinhaVisao = By.xpath("//a[@href='/my_view_page.php']/span");
     By atribuidosParaMim = By.xpath("//div[@id='assigned']/div[@class='widget-header widget-header-small']/div[@class='widget-toolbar no-border hidden-xs']/div[@class='widget-menu']/a[text()='View Issues']");
