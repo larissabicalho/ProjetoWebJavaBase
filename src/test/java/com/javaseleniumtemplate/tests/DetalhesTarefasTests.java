@@ -215,7 +215,7 @@ public class DetalhesTarefasTests extends TestBase {
         verTarefasPage.adicionarRelacao();
 
 
-        Assert.assertEquals(verTarefasPage.verificarRelacao(idsIssues.get(3)).replaceFirst("^0+(?!$)",""), idsIssues.get(3));
+        Assert.assertEquals(verTarefasPage.verificarRelacaoSub(idsIssues.get(3)).replaceFirst("^0+(?!$)",""), idsIssues.get(3));
 
 
         String idIssue = idsIssues.get(0);
