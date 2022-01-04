@@ -102,6 +102,7 @@ public class VerTarefasPage extends PageBase {
 
     public String verificarSeExisteTarefa(String idIssue) {
         verificarRelacoes = verificarRelacoes.replace("###", idIssue);
+        waitForElement(By.xpath(verificarRelacoes));
         return getText(By.xpath(verificarRelacoes));
     }
     
