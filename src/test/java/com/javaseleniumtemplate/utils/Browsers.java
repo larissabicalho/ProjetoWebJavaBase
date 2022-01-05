@@ -73,7 +73,7 @@ public class Browsers {
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--lang=pt-BR");
         chromeOptions.addArguments("--disable-gpu");
-        //chromeOptions.addArguments("window-size=1280,800");
+        chromeOptions.addArguments("window-size=1280,649");
 
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
