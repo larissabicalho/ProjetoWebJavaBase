@@ -27,5 +27,10 @@ public class LoginPage extends PageBase {
     public void clicarDiminuirIcones(){
         click(botaoDiminuir);
     }
+    
+    
+    public Boolean elementoDiminuirIcones(){
+       return returnIfElementExists(botaoDiminuir);
+    }
 
 }
