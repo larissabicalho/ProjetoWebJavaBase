@@ -74,6 +74,7 @@ public class Browsers {
         chromeOptions.addArguments("--lang=pt-BR");
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("window-size=1920,1080");
+        chromeOptions.addArguments("--allow-running-insecure-content");
 
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
