@@ -17,8 +17,5 @@ public class LoginFlows {
         loginPage.clicarEmLogin();
         loginPage.preencherSenha(password);
         loginPage.clicarEmLogin();
-        if(loginPage.elementoDiminuirIcones()){
-           loginPage.clicarDiminuirIcones();
-        }
     }
 }
