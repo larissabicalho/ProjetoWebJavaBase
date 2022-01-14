@@ -106,19 +106,19 @@ public class VerTarefasPage extends PageBase {
         waitForElement(By.xpath(verificarRelacoes));
         return getText(By.xpath(verificarRelacoes));
     }
-    
+
     public String verificarSeExisteTarefaSub(String idIssue) {
         verificarRelacoesSub = verificarRelacoesSub.replace("###", idIssue);
         waitForElement(By.xpath(verificarRelacoesSub));
         return getText(By.xpath(verificarRelacoesSub));
     }
-    
-     public String verificarSeExisteTarefaResolvida(String idIssue) {
+
+    public String verificarSeExisteTarefaResolvida(String idIssue) {
         verificarRelacoesResolvidas = verificarRelacoesResolvidas.replace("###", idIssue);
         return getText(By.xpath(verificarRelacoesResolvidas));
     }
 
-     public String verificarSeExisteTarefaMonitorada(String idIssue) {
+    public String verificarSeExisteTarefaMonitorada(String idIssue) {
         verificarRelacoesMonitoradas = verificarRelacoesMonitoradas.replace("###", idIssue);
         return getText(By.xpath(verificarRelacoesMonitoradas));
     }

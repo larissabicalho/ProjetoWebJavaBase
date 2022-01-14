@@ -52,17 +52,17 @@ public class DataDrivenTests extends TestBase {
     public static Object[][] getProjetoData() throws Exception {
 
         Sheet = ReadExcel.DataSheet(FilePath, SheetName);
-        // Get username and passsword from testdata.xls
+
         int records = Sheet.getPhysicalNumberOfRows();
         int rows = 1;
 
         Object[][] values = new Object[records][rows];
-            //loop over the rows
-           for (int j = 0; j < (records) ; j++) {
-               if (Sheet.getRow(j) != null) {
-                     values[j][rows-1] = String.valueOf(Sheet.getRow(j).getCell(rows - 1));
-                  }
+        //loop over the rows
+        for (int j = 0; j < (records) ; j++) {
+            if (Sheet.getRow(j) != null) {
+                values[j][rows-1] = String.valueOf(Sheet.getRow(j).getCell(rows - 1));
             }
+        }
 
         return values;
     }
@@ -71,12 +71,12 @@ public class DataDrivenTests extends TestBase {
     public static Object[][] getMarcadorData() throws Exception {
 
         Sheet = ReadExcel.DataSheet(FilePath2, SheetName);
-        // Get username and passsword from testdata.xls
+
         int records = Sheet.getPhysicalNumberOfRows();
         int rows = 2;
 
         Object[][] values = new Object[records][rows];
-        //loop over the rows
+
         for (int i = 0; i < rows; i ++) {
             for (int j = 0; j < (records); j++) {
                 if (Sheet.getRow(j) != null) {
@@ -119,7 +119,6 @@ public class DataDrivenTests extends TestBase {
         //loop over the rows
         for (int i = 0; i < rows; i ++) {
             for (int j = 0; j < (records); j++) {
-                System.out.println(j);
                 if (Sheet.getRow(j) != null) {
                     values[j][i] = String.valueOf(Sheet.getRow(j).getCell(i));
                 }

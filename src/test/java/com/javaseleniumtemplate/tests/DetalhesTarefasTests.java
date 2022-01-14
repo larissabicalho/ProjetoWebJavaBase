@@ -49,7 +49,7 @@ public class DetalhesTarefasTests extends TestBase {
 
 
         Assert.assertEquals(idIssue, verTarefasPage.idTarefaCerta().replaceFirst("^0+(?!$)",""));
-        
+
 
         System.out.println("detalhesVerTarefasComSucesso" + ProjetosDBSteps.retornaDadosProjeto().get(1));
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
@@ -87,8 +87,7 @@ public class DetalhesTarefasTests extends TestBase {
         String idIssueCopiada = BuscarIssueDBSteps.retornaDadosIssue().get(0);
 
         Assert.assertEquals(idIssueCopiada, verTarefasPage.idTarefaCerta().replaceFirst("^0+(?!$)",""));
-        
-        System.out.println("copiarTarefasComSucesso" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
 
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssueCopiada);
@@ -129,10 +128,10 @@ public class DetalhesTarefasTests extends TestBase {
 
 
         Assert.assertEquals(verTarefasPage.verificarSeEstaResolvido(), GlobalStaticParameters.resolvido);
-        
 
-        
-        System.out.println("atualizarStatusUmaTarefa" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
+
+
 
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarMonitoramento(idIssue);
@@ -176,7 +175,7 @@ public class DetalhesTarefasTests extends TestBase {
         Assert.assertEquals(verTarefasPage.verificarSelecionarUmUsuario(username), username);
 
 
-         System.out.println("atribuirStatusUmaTarefa" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         UsuariosDBSteps.deletarUsuarioDB(username);
         BuscarIssueDBSteps.deletarMonitoramento(idIssue);
@@ -221,8 +220,7 @@ public class DetalhesTarefasTests extends TestBase {
         String idIssue = idsIssues.get(0);
         String idIssue1 = idsIssues.get(3);
 
-        
-         System.out.println("relacionarStatusUmaTarefa" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarRelationship(idsIssues.get(0));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
@@ -264,7 +262,6 @@ public class DetalhesTarefasTests extends TestBase {
 
         Assert.assertEquals(anotacaoTexto, verTarefasPage.verificarAnotacoes());
 
-                 System.out.println("anotacoesVerTarefasComSucesso" + ProjetosDBSteps.retornaDadosProjeto().get(1));
 
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
@@ -310,8 +307,8 @@ public class DetalhesTarefasTests extends TestBase {
         verTarefasPage.clicarEmApagarAnotacoesConfirmar();
 
         Assert.assertFalse(verTarefasPage.verificarSeOElementoExisteAnotacoes());
-        
-              System.out.println("apagarAnotacoesVerTarefasComSucesso" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
+
 
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
@@ -360,7 +357,7 @@ public class DetalhesTarefasTests extends TestBase {
         Assert.assertEquals(anotacoesTextoModificado, verTarefasPage.verificarAnotacoes());
 
 
-          System.out.println("editarAnotacoesVerTarefasComSucesso" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         String idNote = BuscarIssueDBSteps.retornarIdBugNote();
         String idNoteText = BuscarIssueDBSteps.retornarIdBugNoteText();
@@ -405,10 +402,10 @@ public class DetalhesTarefasTests extends TestBase {
         BuscarIssueDBSteps.deletarBugTags();
 
         String idIssue = idsIssues.get(0);
-        
-        
 
-          System.out.println("adicionarMarcadorUmaTarefa" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
+
+
 
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarBugTags();
@@ -448,16 +445,12 @@ public class DetalhesTarefasTests extends TestBase {
         verTarefasPage.clicarEmApagarTarefaConfirmar();
 
         Assert.assertFalse(mainPage.verificarLinkTarefa("000"+idIssue));
-        
-        
-                  System.out.println("apagarTarefasComSucesso" + ProjetosDBSteps.retornaDadosProjeto().get(1));
+
 
         ProjetosDBSteps.deletarProjetoDB(ProjetosDBSteps.retornaDadosProjeto().get(1));
         BuscarIssueDBSteps.deletarIssueId(idIssue);
         BuscarIssueDBSteps.deletarBugHistory(idIssue);
         BuscarIssueDBSteps.deletarTextoId(idTexto);
     }
-
-
 
 }

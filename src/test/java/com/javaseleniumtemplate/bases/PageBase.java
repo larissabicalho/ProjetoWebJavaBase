@@ -386,4 +386,17 @@ public class PageBase {
         String valorStyle = inputUpload.getAttribute(style);
         defineAtributoElemento(driver, inputUpload, style, "");
     }
+
+    public void dropDrown(String projectName, String drop){
+        Actions action = new Actions(driver);
+        WebElement list = driver.findElement(By.id(drop));
+        list.click();
+        action.moveToElement(list);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Now I need to scroll down till find my desire project in the list.
+
+        WebElement Project = driver.findElement(By.xpath("//*[text()= ' " + projectName + " ']"));
+        js.executeScript("arguments[0].click();", Project);
+    }
 }
