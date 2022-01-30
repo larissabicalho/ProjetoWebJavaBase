@@ -2,7 +2,7 @@
 # Projeto Desafio Mantis
 ![](https://i.imgur.com/U21ILCg.png)
   
-Este projeto foi criado com o intuito de fornecer um sistema com **Front-end**, uma **API Rest** e um **banco de dados** de forma simples para que QAs possam praticar automação de testes. 
+Este projeto foi criado com o intuito de fornecer um sistema com **Front-end** e um **banco de dados** de forma simples para que QAs possam praticar automação de testes. 
 
 O sistema alvo é o [Mantis BugTracker](https://www.mantisbt.org) e é utilizado o Docker para gestão do ambiente e banco de dados.
 
@@ -116,42 +116,9 @@ Para acessar ao banco de dados do Mantis (MariaDB) siga os passos abaixo:
 
 ![](https://i.imgur.com/EnYk6Md.png)
 
-## 2. Mantis Bug Tracker REST API
-
-Uma vez com a aplicação sendo executada pelo Docker, é possível também realizar testes manuais ou automatizados de API Rest no Mantis.
-
-Basta acessar a [documentação oficial Mantis Bug Tracker REST API](https://documenter.getpostman.com/view/29959/mantis-bug-tracker-rest-api/7Lt6zkP) para visualizar cada endpoint, parâmetros, headers correspondentes.
-
-![](https://i.imgur.com/rLg6Q54.png)
-
-É possível também importar todos os endpoints diretamente no Postman para testar ou automatizar esta API Rest. Basta clicar no botão indicado:
 
 
-### O Token é um parâmetro esssencial nas requisições do Mantis Bug Tracker REST API, para gerá-lo:
-
-1. Acesse o sistema Mantis com o usuário administrador - http://127.0.0.1:8989
-
-2. Acesse o menu com nome do usuário/Minha Conta
-
-![](https://i.imgur.com/6OHC06W.png)
-
-3. Clique na aba **Tokens API** 
-
-4. Preencha um novo nome para o token e clique em **Criar Token API**
-
-![](https://i.imgur.com/wp7IIFh.png)
-
-5. Copie o Token gerado e use-o como header em requisições nas suas automações (RestSharp, Postman, SuperTest, RestAssured e demais).
-
-![](https://i.imgur.com/7sybiId.png)
-
-Para a instância local deverá ser usada a url de parâmetro **localhost** com a porta correspondente **8989**. 
-Exemplo de execução no Postman:
-
-![](https://i.imgur.com/sSofy8o.png)
-
-
-## 3. Selenium Grid
+## 2. Selenium Grid
 Para a execução remota dos testes automatizados, via selenum grid, serão utilizados os seguintes passos:
 
   
@@ -164,7 +131,7 @@ Para a execução remota dos testes automatizados, via selenum grid, serão util
 
   
 
-**3.1 Configuração dos contêineres hub, node chrome e node mozilla**
+**2.1 Configuração dos contêineres hub, node chrome, node mozilla e node edge**
 
 - Abrir o prompt de comando
 
@@ -178,7 +145,7 @@ Para a execução remota dos testes automatizados, via selenum grid, serão util
 
 
 
-**3.2 Verificação do console**
+**2.2 Verificação do console**
 
   
 
@@ -191,7 +158,7 @@ Ao executar o comando no navegador `http://127.0.0.1:4444/grid/console` também 
 
 ![enter image description here](https://i.imgur.com/V3choXC.png)
 
-**3.3 Automação de testes e Selenium Grid**
+**2.3 Automação de testes e Selenium Grid**
 Basta fazer as devidas configurações de Remote WebDriver no seu projeto de testes automatizados que os testes poderão ser executados remotamente. 
 Se necessário suba mais containeres para multiplicar os nós.
 
@@ -199,11 +166,17 @@ Se necessário suba mais containeres para multiplicar os nós.
 
 ![](https://i.imgur.com/Eu4JiJm.png)
 
-4.0 WEBDAV
+## 3.Webdav
 
-5.0 JENKINS 
+Para Acessar o WebDav entre no endereço 127.0.0.1:8090/data/
 
-6## 4. ![hp4](https://user-images.githubusercontent.com/22267601/142078606-90c7363a-d6d1-4874-afcb-0756fa518e6a.png)
+
+*É necessário a Criação de 2 pastas no conteiner na pasta /var/lib/dav/data/ do container do WebDav: Downloads e Upload(dentro dessa pasta é necessário criar um arquivo de teste chamado teste.txt) 
+* Dar permissão para essas pastas chmod777
+
+##4. Jenkins
+
+6 ![hp4](https://user-images.githubusercontent.com/22267601/142078606-90c7363a-d6d1-4874-afcb-0756fa518e6a.png)
 
 :heavy_check_mark: Foram Criados mais de 50 Scripts de Automação Utilizando as API's </br>
 
