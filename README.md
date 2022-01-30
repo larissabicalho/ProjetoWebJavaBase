@@ -6,6 +6,18 @@ Este projeto foi criado com o intuito de fornecer um sistema com **Front-end** e
 
 O sistema alvo é o [Mantis BugTracker](https://www.mantisbt.org) e é utilizado o Docker para gestão do ambiente e banco de dados.
 
+:point_right: Setup inicial de projeto com Docker (MariaDB, Jenkins e  Mantis BT) </br>
+:point_right: Criação de testes DataDriven para Usuários e Projetos lendo de um arquivo Excel </br>
+:point_right: Criação de modelo de dados para o mapeamento de entidades em bancos de dados </br>
+:point_right: Desenvolvimento de operações para: Criar,Remover, Atualizar e Buscar (Issues,Projetos,Usuários, Filtros e Configurações) </br>
+:point_right: Desenvolvimento de testes unitários para validação de funcionalides básicas: Criação, listagem, remoção, atualização de (Usuários,Projetos,Issues,Filtros e Configurações) </br>
+:point_right:  Criação de  Script para criar uma string randomica em Java Script </br>
+:point_right: Criação de testes DataDriven para Usuários e Projetos lendo de um arquivo Excel  Ambiente de CI utilizando o Jenkins
+:point_right: Execução Parelela de Teste
+
+
+## Arquitetura 
+
 - Arquitetura Projeto
 	- Linguagem	- [Java](https://www.java.com/pt-BR// "Java")
 	- [Java Kit Development versão 8](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
@@ -14,14 +26,13 @@ O sistema alvo é o [Mantis BugTracker](https://www.mantisbt.org) e é utilizado
 	- Orquestrador de testes - [TestNG](https://testng.org/doc/ "TestNG")
 	- Relatório de testes automatizados - [ExtentReports 4.0.9](http://www.extentreports.com/docs/versions/4/java/index.html "ExtentReports 4.0.9")
 
-## Setup para executar o projeto local
+## ![1imagem](https://user-images.githubusercontent.com/22267601/151709066-48e2ea2c-182d-460f-b372-b1304e0b9764.png)
+
 
 - Versão 1.8 do Java JDK instalada no computador (https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 - Versão community do IntelliJ IDEA instalada no computador (https://www.jetbrains.com/pt-br/idea/download/#section=windows)
 - Última versão do Google Chrome instalada no computador (https://www.google.com/chrome/) - neste momento Google Chrome 86
 - Baixar o projeto, construi-lo e acessar a pasta tests que estará o teste de exemplo.
-
-## Arquitetura
 
 **Premissas de uma boa arquitetura de automação de testes:**
 *  Facilitar o desenvolvimento dos testes automatizados (reuso).
@@ -35,10 +46,7 @@ Para facilitar o entendimento da arquitetura do projeto de testes automatizados,
 ![alt text](https://i.imgur.com/wexOWJF.png)
 
 
-Abaixo um passo a passo para a instalação.
-
-
-# 1. Preparação do ambiente Mantis
+# ![2imagem](https://user-images.githubusercontent.com/22267601/151716141-1b2a5f35-5ba6-498c-ae1f-720b38310b6e.png)
 
 Serão necessárias as seguinte configurações para iniciar o projeto:
 
@@ -166,40 +174,44 @@ Se necessário suba mais containeres para multiplicar os nós.
 
 ![](https://i.imgur.com/Eu4JiJm.png)
 
-## 3.Webdav
+## ![3imagem](https://user-images.githubusercontent.com/22267601/151716237-d017dc23-6f8d-4964-89d0-0a985d21f78b.png)
+
 
 Para Acessar o WebDav entre no endereço 127.0.0.1:8090/data/
 
 
-*É necessário a Criação de 2 pastas no conteiner na pasta /var/lib/dav/data/ do container do WebDav: Downloads e Upload(dentro dessa pasta é necessário criar um arquivo de teste chamado teste.txt) 
+* É necessário a Criação de 2 pastas no conteiner na pasta /var/lib/dav/data/ do container do WebDav: Downloads e Upload(dentro dessa pasta é necessário criar um arquivo de teste chamado teste.txt) 
 * Dar permissão para essas pastas chmod777
 
-##4. Jenkins
+![2022-01-30 16_51_48-Index of _data](https://user-images.githubusercontent.com/22267601/151715861-ce677a03-0212-4469-a54d-163f93cc4fc1.png)</br>
+![2022-01-30 16_50_49-ProjetoWebNovo – WebdavUtils java](https://user-images.githubusercontent.com/22267601/151715873-9b115334-37d3-40b1-842e-55d79d70f979.png)
 
-6 ![hp4](https://user-images.githubusercontent.com/22267601/142078606-90c7363a-d6d1-4874-afcb-0756fa518e6a.png)
+## ![4imagem](https://user-images.githubusercontent.com/22267601/151716342-f9c3b29c-7ff8-4881-8944-6796c7586c92.png)
 
-:heavy_check_mark: Foram Criados mais de 50 Scripts de Automação Utilizando as API's </br>
+## ![5imagem](https://user-images.githubusercontent.com/22267601/151716398-8ffaefcb-ee8a-4475-9f6b-6f213358d181.png)
 
-![casosdeTeste](https://user-images.githubusercontent.com/22267601/141992815-a8b225e5-e44f-41fa-a79a-e7aa22be118c.png)
+:heavy_check_mark: Foram Criados mais de 50 Scripts de Automação </br>
+
+![2022-01-30 14_08_02-ProjetoWebNovo – GerenciarProjetosTests java](https://user-images.githubusercontent.com/22267601/151715336-288c8fcb-2dad-4bee-bbe4-0669462f62a2.png)
 
 :heavy_check_mark: Criação de Projetos e Usuários Utilizando DataDriven </br>
 
-![dataUser](https://user-images.githubusercontent.com/22267601/141995202-ed804bca-bdbe-4688-946b-beb56e380af6.png)</br>
+![2022-01-30 16_47_26-Window](https://user-images.githubusercontent.com/22267601/151715412-67634f48-b7e9-4212-bab6-4c45c0c750cc.png) )</br>
+![2022-01-30 16_48_41-TestData xls](https://user-images.githubusercontent.com/22267601/151715421-79e3ae8c-41d1-469a-aef3-108428396924.png)
 
-
-![projeto](https://user-images.githubusercontent.com/22267601/141995279-b8c8cb97-eeed-46ba-ad17-57ef6059ac16.png)
 
 :heavy_check_mark: Nome de Projeto e Usuário utilizando uma String Randomica gerada através do JavaScript(Node.Js) </br>
 
-![classe](https://user-images.githubusercontent.com/22267601/141994542-218f78a2-14f0-4db1-ad34-64e7d4d551f3.png)
+![2022-01-30 17_06_26-ProjetoWebNovo – ExecutarJavaScriptNode java](https://user-images.githubusercontent.com/22267601/151715756-3b1d0e1f-01ae-4717-b05a-12d861e7f084.png)
  
 :heavy_check_mark: Script Utilizado </br>
 
-![funcao](https://user-images.githubusercontent.com/22267601/141994442-75abbfa9-0035-4975-b3f0-73c238d49695.png)
+![2022-01-30 16_46_04-ProjetoWebNovo – example js](https://user-images.githubusercontent.com/22267601/151715685-a662bf8b-ae08-4b74-8057-1c40166dbdba.png)
 
 :heavy_check_mark: Criação de Queries para Inserir e Deletar informações necessárias </br>
 
-![queries](https://user-images.githubusercontent.com/22267601/141994040-365db98f-1e5b-4800-beb5-90f9cd6bb4e0.png)
+![2022-01-30 16_44_54-ProjetoWebNovo – deletarCategoria sql](https://user-images.githubusercontent.com/22267601/151715808-8cbba661-de0a-4da0-b395-4c7e8adce189.png)
+
 
 :heavy_check_mark: Utilização do Jenkins como Ambiente de CI para rodar e também mostrar o relatório gerado </br>
 
@@ -207,7 +219,9 @@ Para Acessar o WebDav entre no endereço 127.0.0.1:8090/data/
 
 
 
+:heavy_check_mark: Execução Paralela de Testes </br>
 
+![2022-01-30 16_50_12-ProjetoWebNovo – testngsuite xml](https://user-images.githubusercontent.com/22267601/151716054-9c8b9a4d-305e-4acf-9de1-a1cf3fbbd98a.png)
 
 
 
