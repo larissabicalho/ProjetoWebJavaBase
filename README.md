@@ -54,7 +54,7 @@ Serão necessárias as seguinte configurações para iniciar o projeto:
 
 Crie o diretório local "C:\mantis", baixe o arquivo **docker-compose.yml** e cole neste diretório criado.
 
-## **1.1 Setup Docker Mantis**
+##  Setup Docker Mantis
 
 1.  Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop) e reiniciar a máquina
 2.  Caso apresente o erro "WSL 2 installation is incomplete", [baixe e instale o WSL2 Kernel](https://docs.microsoft.com/pt-br/windows/wsl/wsl2-kernel) e clique em Restart
@@ -88,7 +88,7 @@ Crie o diretório local "C:\mantis", baixe o arquivo **docker-compose.yml** e co
 ![](https://i.imgur.com/tZfGGiZ.png)
   
 
-## **1.2 Configuração inicial Mantis**
+## Configuração inicial Mantis
 
 Faça o seu primeiro acesso ao Mantis pelo endereço http://127.0.0.1:8989
 
@@ -110,7 +110,7 @@ O primeiro acesso deverá ser feito utilizando as credenciais *administrator/roo
 
   
 
-## **1.3 Acessar banco de dados Mantis/MariaDB**
+## Acessar banco de dados Mantis/MariaDB
 
 Para acessar ao banco de dados do Mantis (MariaDB) siga os passos abaixo:
 
@@ -126,7 +126,7 @@ Para acessar ao banco de dados do Mantis (MariaDB) siga os passos abaixo:
 
 
 
-## 2. Selenium Grid
+## Selenium Grid
 Para a execução remota dos testes automatizados, via selenum grid, serão utilizados os seguintes passos:
 
   
@@ -139,7 +139,7 @@ Para a execução remota dos testes automatizados, via selenum grid, serão util
 
   
 
-**2.1 Configuração dos contêineres hub, node chrome, node mozilla e node edge**
+**Configuração dos contêineres hub, node chrome, node mozilla e node edge**
 
 - Abrir o prompt de comando
 
@@ -153,7 +153,7 @@ Para a execução remota dos testes automatizados, via selenum grid, serão util
 
 
 
-**2.2 Verificação do console**
+** Verificação do console**
 
   
 
