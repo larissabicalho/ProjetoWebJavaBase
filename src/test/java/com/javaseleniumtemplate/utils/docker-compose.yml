@@ -38,7 +38,7 @@ services:
        - '/opt/devops/gluster/bricks/seleniumgrid:/var/lib/dav/data/'
   
  selenium_hub:
-     image: selenium/hub:3.141.59-20200525
+     image: selenium/hub:3.141.59
      container_name: selenium-hub
      privileged: true
      networks:
@@ -46,14 +46,14 @@ services:
      ports:
        - '4444:4444'
      environment:
-       - GRID_TIMEOUT=15
-       - GRID_BROWSER_TIMEOUT=15
+       - GRID_TIMEOUT=300
+       - GRID_BROWSER_TIMEOUT=300
        - GRID_MAX_SESSION=3
        - GRID_MAX_SESSION=10
        - GRID_MAX_INSTANCES=6
 
  chrome:
-    image: selenium/node-chrome-debug:3.141.59-20200525
+    image: selenium/node-chrome-debug:3.141.59
     network_mode: host
     depends_on:
       - selenium_hub
@@ -66,7 +66,7 @@ services:
       - '/opt/devops/gluster/bricks/seleniumgrid:/home/seluser/'
       
  firefox:
-   image: selenium/node-firefox-debug:3.141.59-20200525
+   image: selenium/node-firefox-debug:3.141.59
    network_mode: host 
    depends_on:
      - selenium_hub
@@ -78,7 +78,7 @@ services:
      - '/opt/devops/gluster/bricks/seleniumgrid:/home/seluser/'
      
  opera:
-   image: selenium/node-opera-debug:3.141.59-20200525
+   image: selenium/node-opera-debug:3.141.59
    network_mode: host 
    depends_on:
      - selenium_hub
