@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="JavaSeleniumTemplateTests" parallel="false">
-    <test name="TestNgMavenTest">
+    <test name="TestNgMavenTest"  thread-count="2">
         <classes>
           <class name="com.javaseleniumtemplate.tests.CriarTarefasTests"/>
           <class name="com.javaseleniumtemplate.tests.DataDrivenTests"/>
