@@ -13,8 +13,9 @@ O sistema alvo é o [Mantis BugTracker](https://www.mantisbt.org) e é utilizado
 :point_right: Desenvolvimento de testes unitários para validação de funcionalides básicas: Criação, listagem, remoção, atualização de (Usuários,Projetos,Issues,Filtros e Configurações) </br>
 :point_right:  Criação de  Script para criar uma string randomica em Java Script </br>
 :point_right: Criação de testes DataDriven para Usuários e Projetos lendo de um arquivo Excel  Ambiente de CI utilizando o Jenkins</br>
-:point_right: Execução Parelela de Teste
+:point_right: Execução Parelela de Teste </br>
 
+* É necessário que não Exista projetos no Banco de Dados ao executar os testes </br>
 
 ## ![10imagem](https://user-images.githubusercontent.com/22267601/151832129-de293e7f-6ad2-433e-acde-cc5a67862468.png)
 
