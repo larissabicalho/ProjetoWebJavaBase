@@ -16,7 +16,7 @@ O sistema alvo é o [Mantis BugTracker](https://www.mantisbt.org) e é utilizado
 :point_right: Execução Parelela de Teste
 
 
-## Arquitetura 
+## ![10imagem](https://user-images.githubusercontent.com/22267601/151832129-de293e7f-6ad2-433e-acde-cc5a67862468.png)
 
 - Arquitetura Projeto
 	- Linguagem	- [Java](https://www.java.com/pt-BR// "Java")
