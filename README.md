@@ -12,7 +12,7 @@ O sistema alvo é o [Mantis BugTracker](https://www.mantisbt.org) e é utilizado
 :point_right: Desenvolvimento de operações para: Criar,Remover, Atualizar e Buscar (Issues,Projetos,Usuários, Filtros e Configurações) </br>
 :point_right: Desenvolvimento de testes unitários para validação de funcionalides básicas: Criação, listagem, remoção, atualização de (Usuários,Projetos,Issues,Filtros e Configurações) </br>
 :point_right:  Criação de  Script para criar uma string randomica em Java Script </br>
-:point_right: Criação de testes DataDriven para Usuários e Projetos lendo de um arquivo Excel  Ambiente de CI utilizando o Jenkins
+:point_right: Criação de testes DataDriven para Usuários e Projetos lendo de um arquivo Excel  Ambiente de CI utilizando o Jenkins</br>
 :point_right: Execução Parelela de Teste
 
 
@@ -54,7 +54,7 @@ Serão necessárias as seguinte configurações para iniciar o projeto:
 
 Crie o diretório local "C:\mantis", baixe o arquivo **docker-compose.yml** e cole neste diretório criado.
 
-##  Setup Docker Mantis
+##  ![6imagem](https://user-images.githubusercontent.com/22267601/151830094-9bdfbf50-6bae-4fa8-a0b4-56dc80a7df98.png)
 
 1.  Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop) e reiniciar a máquina
 2.  Caso apresente o erro "WSL 2 installation is incomplete", [baixe e instale o WSL2 Kernel](https://docs.microsoft.com/pt-br/windows/wsl/wsl2-kernel) e clique em Restart
@@ -71,9 +71,9 @@ Crie o diretório local "C:\mantis", baixe o arquivo **docker-compose.yml** e co
 
 5.  Abra um terminal e acesse o diretório recém criado: "C:/mantis"
 
-6.  No diretório haverá o arquivo **docker-compose.yml**
+6.  No diretório haverá o arquivo **docker-compose.yml** (É necessário substituir os ip's dos containers pelo ip da Máquina)
 
-7.  Execute o comando> `docker-compose.exe up -d`
+7.  Execute o comando> `docker-compose.exe up -d` 
 
 8.  Após o processamento se tudo correr bem, as imagens serão baixadas e novos contêineres criados:
 
@@ -88,7 +88,7 @@ Crie o diretório local "C:\mantis", baixe o arquivo **docker-compose.yml** e co
 ![](https://i.imgur.com/tZfGGiZ.png)
   
 
-## Configuração inicial Mantis
+## ![7imagem](https://user-images.githubusercontent.com/22267601/151831045-68978981-2ddb-43e9-af28-c280b6b516ab.png)
 
 Faça o seu primeiro acesso ao Mantis pelo endereço http://127.0.0.1:8989
 
@@ -110,7 +110,7 @@ O primeiro acesso deverá ser feito utilizando as credenciais *administrator/roo
 
   
 
-## Acessar banco de dados Mantis/MariaDB
+## ![8imagem](https://user-images.githubusercontent.com/22267601/151831055-61a9cacb-33cd-449b-bfca-82b6d4004caa.png)
 
 Para acessar ao banco de dados do Mantis (MariaDB) siga os passos abaixo:
 
@@ -126,7 +126,8 @@ Para acessar ao banco de dados do Mantis (MariaDB) siga os passos abaixo:
 
 
 
-## Selenium Grid
+## ![9imagem](https://user-images.githubusercontent.com/22267601/151831074-4faaec8b-dfc8-48e1-bed7-7df0b9bc9def.png)
+
 Para a execução remota dos testes automatizados, via selenum grid, serão utilizados os seguintes passos:
 
   
@@ -179,7 +180,7 @@ Se necessário suba mais containeres para multiplicar os nós.
 
 Para Acessar o WebDav entre no endereço 127.0.0.1:8090/data/
 
-
+* É necessário substituir o ip no arquivo WebDavUtils pelo ip da máquina
 * É necessário a Criação de 2 pastas no conteiner na pasta /var/lib/dav/data/ do container do WebDav: Downloads e Upload(dentro dessa pasta é necessário criar um arquivo de teste chamado teste.txt) 
 * Dar permissão para essas pastas chmod777
 
@@ -187,6 +188,51 @@ Para Acessar o WebDav entre no endereço 127.0.0.1:8090/data/
 ![2022-01-30 16_50_49-ProjetoWebNovo – WebdavUtils java](https://user-images.githubusercontent.com/22267601/151715873-9b115334-37d3-40b1-842e-55d79d70f979.png)
 
 ## ![4imagem](https://user-images.githubusercontent.com/22267601/151716342-f9c3b29c-7ff8-4881-8944-6796c7586c92.png)
+Para a execução remota dos testes automatizados, via jenkins foi executados os seguintes passos:
+
+1. Criação de um DockerFile, que está na pasta Utils do Projeto (atráves desse Dockerfile e criado uma imagem do Jenkins contendo o Maven)
+ Execute o comando no QuickStartTerminal> `docker build -t jenkins-maven .` ex. Faça isso antes de subir o compose 
+2. Acessar o endereço do Jenkins vai ter provávelmente nesse endereço : http://192.168.99.101:8081 vai ser necessário uma chave.
+ Execute o comando no QuickStartTerminal> `docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword `
+ :heavy_check_mark: Crie um novo Job </br>
+ 
+ ![jenkinsjob](https://user-images.githubusercontent.com/22267601/141997787-e4c13727-b279-4fe2-b0e7-fc4c09668da8.png) </br>
+ :heavy_check_mark: Configure o Job (Nome e Tipo) </br>
+ 
+ ![job](https://user-images.githubusercontent.com/22267601/141997722-bbba5297-4e83-41e6-a6a2-883e4f350b8c.png)
+ 
+ :heavy_check_mark:Colocar o Projeto Git no Jenkins e Adicionar as credenciais git para baixar <br>
+ 
+![git](https://user-images.githubusercontent.com/22267601/151826226-0d4b46f2-25d2-4ea7-b77c-ed1c38620eb0.png) </br>
+ 
+![git2](https://user-images.githubusercontent.com/22267601/151826993-cfb0590d-0bf6-42db-a5bc-20266fd67035.png) </br>
+
+3. Adicionar o Plugin o HTML Report 
+
+ :heavy_check_mark: Gerenciar Jenkins </br>
+ 
+ ![gerenciar](https://user-images.githubusercontent.com/22267601/141996925-03a761d7-4ea4-49e3-8bfb-ccb2539b8a4d.png)
+ 
+ :heavy_check_mark: Gerenciar Plugins </br>
+ 
+ ![gerenciarPlugins](https://user-images.githubusercontent.com/22267601/141996953-074e08f6-3eca-43f2-b917-bc9623f8c342.png)
+ 
+ :heavy_check_mark: HTML Plugin </br> </br>
+ 
+ ![htmlPlugin](https://user-images.githubusercontent.com/22267601/141996896-b7ca84df-ee7b-4b2e-b114-8c51f4f0afd5.png)
+ 
+4. Configurar o SufireReport </br>
+
+![jenkinssufire](https://user-images.githubusercontent.com/22267601/141996560-ef329f52-ef7a-4a6a-8d56-7f5c13ceb14a.png)
+ 
+5. Configurar o HTML Report </br>
+
+![report](https://user-images.githubusercontent.com/22267601/151828588-215475db-e7fa-4b00-9770-f49f118cd8fc.png)
+
+6. Rodar Projeto </br>
+
+![rodar](https://user-images.githubusercontent.com/22267601/151829113-c4f6ba46-04b2-40cc-b801-7d486a4e8ddc.png)
+
 
 ## ![5imagem](https://user-images.githubusercontent.com/22267601/151716398-8ffaefcb-ee8a-4475-9f6b-6f213358d181.png)
 
@@ -215,7 +261,7 @@ Para Acessar o WebDav entre no endereço 127.0.0.1:8090/data/
 
 :heavy_check_mark: Utilização do Jenkins como Ambiente de CI para rodar e também mostrar o relatório gerado </br>
 
-![relatorio](https://user-images.githubusercontent.com/22267601/141993615-3380dc4b-a8cd-46ee-9180-2ff245db5669.png)
+![dashboard](https://user-images.githubusercontent.com/22267601/151825093-3112aae6-fade-4e1c-915a-ed44ad5c419d.png)
 
 
 
