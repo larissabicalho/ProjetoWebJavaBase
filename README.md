@@ -264,7 +264,9 @@ Para a execução remota dos testes automatizados, via jenkins foi executados os
 
 ![dashboard](https://user-images.githubusercontent.com/22267601/151825093-3112aae6-fade-4e1c-915a-ed44ad5c419d.png)
 
+:heavy_check_mark: Screenshot quando há falhas no teste </br>
 
+![apagarAnotacoesVerTarefasComSucesso](https://user-images.githubusercontent.com/22267601/152843878-879751b0-f786-45e4-b74a-2620bad76160.png)
 
 :heavy_check_mark: Execução Paralela de Testes </br>
 
