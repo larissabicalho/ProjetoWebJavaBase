@@ -8,9 +8,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 
-/**
- * Created by Sandeep yadav on 15/11/16.
- */
 public class ReadExcel {
     public static Object[][] LoginData;
     public static Object[][] ShipmentData;
